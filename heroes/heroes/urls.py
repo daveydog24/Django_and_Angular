@@ -16,9 +16,9 @@ Including another URLconf
 
 # path is the new django feature over the old url function.
 from django.urls import path
-from hero_app.views import heroes, HeroDetails
+from hero_app.views import Heroes, HeroDetails
  
 urlpatterns = [
     path( 'heroes', Heroes.as_view() ),    
-    path( 'heroes/<int:heroes_id>', HeroDetails.as_view() )
+    path( 'heroes/<int:hero_id>', HeroDetails.as_view() )
 ]

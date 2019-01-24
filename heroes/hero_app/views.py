@@ -7,17 +7,20 @@ import json
 # easier we will be making use of Django's class based views.
  
 class Heroes(View):
-    def get(self, request):        
+    def get(self, request):
         return JsonResponse({'status': 'ok'})
-    def post(self, request):    	
+    def post(self, request):
         our_data = json.loads(request.body.decode())
-	    print(our_data, type(our_data)        
+        print(our_data, type(our_data))
         return JsonResponse({'status': 'ok'})
  
-class Hero_Details(View):
-    def get(self, request, hero_id):        
+class HeroDetails(View):
+    def get(self, request, hero_id):
         return JsonResponse({'status': 'ok'})
-    def put(self, request, hero_id):        
+    # displays the hero number we get from the url  
+    # def get(self, request, hero_id):
+    #     return JsonResponse({'status': hero_id})
+    def put(self, request, hero_id):
         return JsonResponse({'status': 'ok'})
-    def delete(self, request, hero_id):        
+    def delete(self, request, hero_id):
         return JsonResponse({'status': 'ok'})
