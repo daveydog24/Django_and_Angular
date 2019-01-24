@@ -74,12 +74,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
-# add these lines at the bottom of the file
+# added onto base directory to connect angular client app
 STATIC_ROOT = os.path.join(BASE_DIR, 'client/dist/client/')
+
+# used with whitespace to... 
 STATICFILES_STORAGE = 'spa.storage.SPAStaticFilesStorage'
