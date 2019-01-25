@@ -10,29 +10,33 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskNewComponent } from './task-new/task-new.component';
+import { HeroListComponent } from './hero-list/hero-list.component'
 
 // Services
 
 import { TaskService } from './task.service';
+import { HeroesService } from './heroes.service';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TaskListComponent,
-    TaskNewComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [
-    TaskService
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+    declarations: [
+        AppComponent,
+        TaskListComponent,
+        TaskNewComponent,
+        HeroListComponent,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule
+    ],
+    providers: [
+        TaskService,
+        HeroesService
+    ],
+    bootstrap: [
+        AppComponent
+    ]
 })
 
 export class AppModule {

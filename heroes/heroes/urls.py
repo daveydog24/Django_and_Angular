@@ -19,6 +19,6 @@ from django.urls import path
 from hero_app.views import Heroes, HeroDetails
  
 urlpatterns = [
-    path( 'heroes', Heroes.as_view() ),    
+    path( 'heroes', Heroes.as_view() ),
     path( 'heroes/<int:hero_id>', HeroDetails.as_view() )
 ]

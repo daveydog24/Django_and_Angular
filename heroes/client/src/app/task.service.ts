@@ -36,6 +36,12 @@ export class TaskService {
     cb();
   }
 
+
+// finished above
+
+
+
+
   removeTask(task, cb){
     for(let i=0; i<this.tasks.length; i++){
       if(this.tasks[i] == task){

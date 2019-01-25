@@ -1,0 +1,21 @@
+<div class="Wrapper">
+    <button (click)="getAll($event)">Get all Heroes</button>
+    <br>
+    <br>
+    <tbody>
+        <tr *ngFor="let hero of heroes">
+            <td>{{ hero.hero }}</td>
+            <td>{{ hero.abilities }}</td>
+        </tr>
+    </tbody>
+    <br>
+    <br>
+
+    <form (submit)="createNewHero()">
+        <div class="newHero">
+            <input type="text" name="hero.hero" [(ngModel)]="hero.hero" placeholder="Hero Name" class="input" autoFocus/>
+            <input type="text" name="hero.abilities" [(ngModel)]="hero.abilities" placeholder="Heroes main ability?" class="input" autoFocus/>
+        </div>
+        <button type="submit">Create Hero</button>
+    </form>
+</div>
