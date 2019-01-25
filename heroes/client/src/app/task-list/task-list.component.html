@@ -1,0 +1,56 @@
+<div class="tabs is-centered is-boxed">
+    <ul>
+        <li class="is-active">
+            <a (click)="getAll($event)">All</a>
+        </li>
+        <li>
+            <a (click)="getComplete($event)">Completed</a>
+        </li>
+        <li>
+            <a (click)="getActive($event)">Active</a>
+        </li>
+    </ul>
+</div>
+
+<div class="table-box">
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+            <tr>
+                <th style="width: 50%">Task</th>
+                <th style="width: 25%">Status</th>
+                <th style="width: 25%">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>{{ task.task }}</td>
+                <td>
+                    <div class="tags has-addons" (click)="changeStatus(task)">
+                        <span *ngIf="task.isComplete" class="tag is-success">
+                            Completed
+                        </span>
+                        <span *ngIf="task.isComplete" class="tag is-light">
+                            <input type="checkbox" checked />
+                        </span>
+                        <span *ngIf="!task.isComplete" class="tag is-danger">
+                            Active
+                        </span>
+                        <span *ngIf="!task.isComplete" class="tag is-light">
+                            <input type="checkbox" />
+                        </span>
+                    </div>
+                </td>
+                <td>
+                    <a class="button is-small is-danger is-outlined" (click)="remove(task)">
+                        <span class="icon is-small">
+                            <i class="fas fa-times-circle"></i>
+                        </span>
+                        <span>
+                            Remove
+                        </span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

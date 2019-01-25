@@ -1,0 +1,17 @@
+.table-box {
+    height: 250px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.tags {
+    cursor: pointer;
+}
+
+.is-light {
+    background-color: #fff !important;
+}
+
+.tag.is-light {
+    border: 1px solid #ccc;
+}

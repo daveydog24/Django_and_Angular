@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+	background-color: #e3e3e3;
+	overflow: auto;
+}
+
+.main {
+	width: 720px;
+	margin: 0 auto;
+}
+
+.hero {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	box-shadow: 5px 5px 5px #cccc;
+}
+
+.tabs {
+	margin-top: 10px;
+}
+
+.box {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px; 
+	box-shadow: 5px 5px 5px #cccc;
+}

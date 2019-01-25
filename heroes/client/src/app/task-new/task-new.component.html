@@ -1,0 +1,23 @@
+<form (submit)="createTask()">
+    <div class="column">
+        <div class="level">
+            
+            <div class="level-item">
+                <p class="subtitle is-4">New Task:</p>
+            </div>
+
+            <div class="level-item control has-icons-left">
+                <input type="text" name="task.task" [(ngModel)]="task.task" placeholder="Your task" class="input" autoFocus/>
+                <span class="icon is-small is-left">
+                    <i class="fas fa-briefcase"></i>
+                </span>
+            </div>
+
+            <div class="level-item">
+                <button type="submit" class="button is-link is-outlined">
+                    New Task
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
