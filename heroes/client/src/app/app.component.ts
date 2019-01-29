@@ -21,14 +21,14 @@ export class AppComponent {
             console.log("in app component... data: ", data);
         })
     }
-    makeHero(){
-        let hero = {
-            'name': "Zeus",
-            'abilities': true
-        };
-        let observable = this._heroesService.createNewHero(hero);
-        observable.subscribe(data => {
-            console.log(data)
-        })
-    }
+    // makeHero(){
+    //     let hero = {
+    //         'name': "Zeus",
+    //         'abilities': true
+    //     };
+    //     let observable = this._heroesService.createNewHero(hero);
+    //     observable.subscribe(data => {
+    //         console.log(data)
+    //     })
+    // }
 }

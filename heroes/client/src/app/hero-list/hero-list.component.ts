@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../heroes.service';
 import { HttpClient } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.css']
 })
+
 export class HeroListComponent implements OnInit {
 
     hero = {'hero': '', 'abilities': "none"};
@@ -28,16 +28,11 @@ export class HeroListComponent implements OnInit {
             console.log("heroes: ", this.heroes)
         });
     }
-  
+    
     createNewHero(){
         // storing our recent data sent from ngModel after submitting the form into data
         let data = this.hero
         console.log(data)
-
-        // area to add default values later.
-        // if (data.hero == null) {
-        //     data.hero = "Default";
-        // }
 
         // creates hero object that we are going to send to the service and eventually the database.
         let newHero = {
@@ -50,6 +45,6 @@ export class HeroListComponent implements OnInit {
         this._heroesService.createHero(newHero, heroes => {
             this.heroes = heroes;
         });
-        return this._http.post('heroes', this.heroes)
+        // return this._http.post('heroes', this.heroes)
     }
 }
