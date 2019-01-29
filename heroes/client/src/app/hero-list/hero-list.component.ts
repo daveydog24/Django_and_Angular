@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeroListComponent implements OnInit {
 
-    hero = {'hero': '', 'abilities': false};
+    hero = {'hero': '', 'abilities': "none"};
     heroes = [];
 
     constructor(private _heroesService: HeroesService, private _http: HttpClient) {
@@ -21,8 +21,8 @@ export class HeroListComponent implements OnInit {
     ngOnInit() {
     }  
 
+    // access our hero service to get all the heroes in the service and eventually from the database.
     getAll(event){
-        console.log("heroes: ", this.heroes)
         this._heroesService.getAll(data => {
             this.heroes = data;
             console.log("heroes: ", this.heroes)
@@ -30,18 +30,26 @@ export class HeroListComponent implements OnInit {
     }
   
     createNewHero(){
-        console.log("in hero service creating new hero")
+        // storing our recent data sent from ngModel after submitting the form into data
         let data = this.hero
         console.log(data)
 
-        if (data.hero == null) {
-            data.hero = "Default";
-        }
+        // area to add default values later.
+        // if (data.hero == null) {
+        //     data.hero = "Default";
+        // }
+
+        // creates hero object that we are going to send to the service and eventually the database.
         let newHero = {
             'hero': data.hero,
             'abilities': data.abilities
         };
-        this.heroes.push(newHero)
+
+        // sends our new hero to our hero service and gets the new set of heros from the callback
+        // from the heroservice create Hero function.
+        this._heroesService.createHero(newHero, heroes => {
+            this.heroes = heroes;
+        });
         return this._http.post('heroes', this.heroes)
     }
 }

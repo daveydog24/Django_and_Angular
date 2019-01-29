@@ -23,11 +23,12 @@ export class HeroesService {
        return callback(this.heroes);
     }
     createHero(hero, callback){
+        console.log("in create hero function inside hero service")
         this.heroes.push(hero);
-        callback();
+        callback(this.heroes);
     }
     createNewHero(hero){
-        console.log("in hero service creating new hero")
+        console.log("in createNEWHERO inside hero service creating new hero")
         return this._http.post('heroes', hero)
     }
 }
