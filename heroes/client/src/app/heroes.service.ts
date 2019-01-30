@@ -1,24 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class HeroesService {
+    // temp data till we add a database to store heroes
     heroes = [
         {
-          "hero": "Hercules",
+          "name": "Hercules",
           "abilities": "Strong"
         },
         {
-          "hero": "Wolverine",
+          "name": "Wolverine",
           "abilities": "Invincible"
         }
-      ];
-    constructor(private _http: HttpClient) {
-        this._http = _http;
-    }
+    ];
+    constructor() {}
 
     // sends back our list of heroes that we will eventually get from the database
     getAll(callback) {
@@ -31,9 +29,4 @@ export class HeroesService {
         this.heroes.push(hero);
         callback(this.heroes);
     }
-
-    // createNewHero(hero){
-    //     console.log("in createNEWHERO inside hero service creating new hero")
-    //     return this._http.post('heroes', hero)
-    // }
 }
