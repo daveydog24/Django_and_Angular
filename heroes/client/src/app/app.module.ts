@@ -11,13 +11,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { HeroListComponent } from './hero-list/hero-list.component'
+import { WelcomeComponent } from './welcome/welcome.component';
+import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
 
 // Services
 
 import { TaskService } from './task.service';
 import { HeroesService } from './heroes.service';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
+import { DjangoHeroesService } from './django-heroes.service';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
     ],
     providers: [
         TaskService,
-        HeroesService
+        HeroesService,
+        DjangoHeroesService,
     ],
     bootstrap: [
         AppComponent

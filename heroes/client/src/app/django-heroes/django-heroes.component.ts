@@ -15,17 +15,18 @@ export class DjangoHeroesComponent implements OnInit {
     ngOnInit() {
     }
     getAllHeroes() {
-        let observable$: any = this._djangoHeroesService.getDjangoHeroes();
+        let observable$ = this._djangoHeroesService.getDjangoHeroes();
         observable$.subscribe( data => {
             console.log("in getAllHeroes method inside of.... django-heroes component. data: ", data);
         });
     }
     makeDjangoHero() {
+        console.log("made it in after the click")
         let hero = {
             'name': 'Zeus',
             'abilities': 'Immortale'
         };
-        let observable$: any = this._djangoHeroesService.makeDjangoHeroes(hero);
+        let observable$ = this._djangoHeroesService.makeDjangoHeroes(hero);
         observable$.subscribe( data => {
             console.log("in makeDjanoHero method inside of.... django-heroes component. data: ", data);
         });

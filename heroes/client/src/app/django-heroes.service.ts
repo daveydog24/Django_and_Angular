@@ -9,10 +9,10 @@ export class DjangoHeroesService {
     constructor(private _http: HttpClient ) {}
 
     getDjangoHeroes(){
-        this._http.get('/django/heroes')
+        return this._http.get('/django/heroes');
     }
 
     makeDjangoHeroes(hero){
-        this._http.post('/django/heroes', hero);
+        return this._http.post('/django/heroes', hero);
     }
 }
