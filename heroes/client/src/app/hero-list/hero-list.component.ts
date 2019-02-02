@@ -11,9 +11,7 @@ export class HeroListComponent implements OnInit {
     hero = {'name': undefined, 'abilities': undefined};
     heroes = [];
 
-    constructor(private _heroesService: HeroesService) {
-        this._heroesService = _heroesService;
-    }
+    constructor(private _heroesService: HeroesService) {}
     
     // later this will get all info asynch and then only display or not display when the button is clicked.
     ngOnInit() {}
