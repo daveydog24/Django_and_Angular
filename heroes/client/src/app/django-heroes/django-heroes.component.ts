@@ -24,7 +24,7 @@ export class DjangoHeroesComponent implements OnInit {
         console.log("made it in after the click")
         let hero = {
             'name': 'Zeus',
-            'abilities': 'Immortale'
+            'abilities': true
         };
         let observable$ = this._djangoHeroesService.makeDjangoHeroes(hero);
         observable$.subscribe( data => {
