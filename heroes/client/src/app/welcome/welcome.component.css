@@ -1,0 +1,29 @@
+#top, #bottom{
+    text-align: center;
+}
+h1{
+    font-size: 40px;
+    margin: 0px;
+}
+h3{
+    font-size: 15px;
+    margin: 0px;
+}
+h6{
+    font-size: 12px;
+}
+.img-links{
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    display: inline-block;
+}
+li{
+    display: inline-block;
+    width: 60px;
+    margin: 10px;
+    font-size: 10px;
+}
+ul{
+    text-align: center;
+}

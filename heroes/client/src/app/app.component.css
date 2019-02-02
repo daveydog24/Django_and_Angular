@@ -1,0 +1,31 @@
+#title{
+    font-size: 40px;
+    text-align: center;
+}
+#wrapper{
+    border: 1px solid black;
+    width: 100%;
+    height: 1200px;
+}
+#bottom{
+    margin: 15px;
+}
+#nav-bar{
+    margin: 15px;
+    text-align: center;
+}
+#nav-bar li{
+    margin: 10px;
+    display: inline;
+}
+#nav-bar a{
+    border: 3px solid black;
+    padding: 5px;
+    font-size: 20px;
+    background-color: white;
+    font-weight: 700px;
+    margin: 10px;
+}
+#router-outlet-component{
+    border-top: 5px solid black;
+}

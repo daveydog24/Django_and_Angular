@@ -17,8 +17,10 @@ Including another URLconf
 # path is the new django feature over the old url function.
 from django.urls import path
 from hero_app.views import Heroes, HeroDetails
+from django.views.generic import TemplateView
  
 urlpatterns = [
     path( 'heroes', Heroes.as_view() ),
-    path( 'heroes/<int:hero_id>', HeroDetails.as_view() )
+    path( 'heroes/<int:hero_id>', HeroDetails.as_view() ),
+    path( 'david', TemplateView.as_view(template_name="../src/index.html"))
 ]

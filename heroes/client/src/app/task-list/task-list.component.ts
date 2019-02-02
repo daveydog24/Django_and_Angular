@@ -7,8 +7,10 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
+    
 
   constructor(private _taskService: TaskService) { }
+  task = {'task': '', 'isComplete': false};
 
   tasks = [];
   mode = 'all';
@@ -24,6 +26,11 @@ export class TaskListComponent implements OnInit {
       this.tasks = data;
     });
   }
+  createTask(){
+    this._taskService.addTask(this.task, () => {
+        this.task = {'task': '', 'isComplete': false};
+    });
+}
 
   getComplete(e){
     this.setActive(e);

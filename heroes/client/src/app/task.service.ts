@@ -1,65 +1,58 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
+
 export class TaskService {
+    constructor() {}
+    tasks = [
+        {
+            "task": "Learn Django",
+            "isComplete": true 
+        },
+        {
+            "task": "Learn Angular",
+            "isComplete": true 
+        },
+        {
+            "task": "???",
+            "isComplete": false 
+        },
+        {
+            "task": "Profit!",
+            "isComplete": false 
+        }
+    ];
 
-  constructor() {
-  }
-
-  tasks = [
-    {
-      "task": "Learn Django",
-      "isComplete": true 
-    },
-    {
-      "task": "Learn Angular",
-      "isComplete": true 
-    },
-    {
-      "task": "???",
-      "isComplete": false 
-    },
-    {
-      "task": "Profit!",
-      "isComplete": false 
+    getTasks(callback){
+        return callback(this.tasks);
     }
-  ];
 
-  getTasks(cb){
-    return cb(this.tasks);
-  }
-
-  addTask(task, cb){
-    this.tasks.push(task);
-    cb();
-  }
-
-
-// finished above
-
-
-
-
-  removeTask(task, cb){
-    for(let i=0; i<this.tasks.length; i++){
-      if(this.tasks[i] == task){
-        this.tasks.splice(i, 1);
-        break;
-      }
+    addTask(task, callback){
+        this.tasks.push(task);
+        callback();
     }
-    cb();
-  }
 
-  updateTask(task, update, cb){
-    for(let i=0; i<this.tasks.length; i++){
-      if(this.tasks[i] == task){
-        this.tasks[i] = update;
-        break;
-      }
+    removeTask(task, callback){
+        // what you should use to delete and get the id
+        // return this._http.delete(`/tasks/${task.id}`, task)
+        for(let i=0; i<this.tasks.length; i++){
+            if(this.tasks[i] == task){
+                this.tasks.splice(i, 1);
+                break;
+            }
+        }
+        callback();
     }
-    cb();
-  }
 
+    updateTask(task, update, callback){
+        for(let i=0; i<this.tasks.length; i++){
+            if(this.tasks[i] == task){
+                this.tasks[i] = update;
+                break;
+            }
+        }
+        callback();
+    }
 }

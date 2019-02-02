@@ -1,14 +1,27 @@
-<div class="container">
-    <section class="section main">
-        <div class="hero is-primary">
-            <div class="hero-body is-bold">
-                <h1 class="title">Tasks</h1>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>David Wukelic's Project</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="top">
+                <div id="nav-bar">
+                    <nav>
+                        <li><a [routerLink]="['/home']">Home</a></li>
+                        <li><a [routerLink]="['/tasks']">Tasks</a></li>
+                        <li><a [routerLink]="['/heroes']">Heroes</a></li>
+                    </nav>
+                </div>
+            </div>
+            <div id="bottom">
+                <div id="router-outlet-component">
+                    <router-outlet></router-outlet>
+                </div>
             </div>
         </div>
-        <div class="box">
-            <app-task-new></app-task-new>
-            <app-task-list></app-task-list>
-        </div>
-        <app-hero-list></app-hero-list>
-    </section>
-</div>
+    </body>
+</html>

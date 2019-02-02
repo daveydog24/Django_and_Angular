@@ -29,3 +29,7 @@ class HeroDetails(View):
         return JsonResponse({'status': 'ok'})
     def delete(self, request, hero_id):
         return JsonResponse({'status': 'ok'})
+
+
+        # send back a json response dictionatry and parse through them as well
+        # use these vs angulars front end validations 
