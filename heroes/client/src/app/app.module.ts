@@ -17,6 +17,7 @@ import { HeroListComponent } from './hero-list/hero-list.component'
 import { TaskService } from './task.service';
 import { HeroesService } from './heroes.service';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
         TaskListComponent,
         HeroListComponent,
         WelcomeComponent,
+        DjangoHeroesComponent,
     ],
     imports: [
         BrowserModule,
