@@ -25,7 +25,6 @@ export class HeroListComponent implements OnInit {
     
     // sends updated data from ngModel to the hero service/database and updates our heroes
     createNewHero(){
-
         // this section should handle errors!! 
         if (this.hero.name == undefined) {            
             alert("YOU NEED TO ENTER A NAME!!!!");
