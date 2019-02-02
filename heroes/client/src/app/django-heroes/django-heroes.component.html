@@ -1,4 +1,21 @@
 <h1>Django Heroes Component</h1>
 
 <button (click)="getAllHeroes()"> Get All Heroes</button>
-<button (click)="makeDjangoHero()"> Make Hero</button>
+
+<div class="Wrapper">
+    <tbody>
+        <tr *ngFor="let hero of django_heroes">
+            <td>{{ hero.name}}</td>
+            <td>{{ hero.abilities }}</td>
+        </tr>
+    </tbody>
+    <br>
+    <br>
+    <form (submit)="makeDjangoHero()">
+        <div class="newHero">
+            <input type="text" name="hero.name" [(ngModel)]="hero.name" placeholder="Hero Name" class="input" autoFocus/>
+            <input type="text" name="hero.abilities" [(ngModel)]="hero.abilities" placeholder="Heroes main ability?" class="input" autoFocus/>
+        </div>
+        <button type="submit">Create Hero</button>
+    </form>
+</div>

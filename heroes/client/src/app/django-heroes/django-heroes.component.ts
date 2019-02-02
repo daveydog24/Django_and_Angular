@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DjangoHeroesService } from '../django-heroes.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-django-heroes',
@@ -11,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class DjangoHeroesComponent implements OnInit {
     constructor(private _djangoHeroesService: DjangoHeroesService) {}
     django_heroes = [];
+    hero = {'name': undefined, 'abilities': undefined};
 
     ngOnInit() {
     }
@@ -18,17 +18,25 @@ export class DjangoHeroesComponent implements OnInit {
         let observable$ = this._djangoHeroesService.getDjangoHeroes();
         observable$.subscribe( data => {
             console.log("in getAllHeroes method inside of.... django-heroes component. data: ", data);
+            this.django_heroes = data["heroes"];
         });
     }
     makeDjangoHero() {
-        console.log("made it in after the click")
-        let hero = {
-            'name': 'Zeus',
-            'abilities': true
-        };
-        let observable$ = this._djangoHeroesService.makeDjangoHeroes(hero);
+
+        if (this.hero.name == undefined) {            
+            alert("YOU NEED TO ENTER A NAME!!!!");
+            return;
+        }
+        if (this.hero.abilities == undefined) {
+            alert("YOU NEED TO ENTER A ABILITY!!!!");
+            return;
+        }
+        
+        let observable$ = this._djangoHeroesService.makeDjangoHeroes(this.hero);
         observable$.subscribe( data => {
             console.log("in makeDjanoHero method inside of.... django-heroes component. data: ", data);
+            this.django_heroes = data["heroes"];
+            this.hero = {'name': undefined, 'abilities': undefined};
         });
     }
 }
