@@ -35,6 +35,7 @@ import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
         RouterModule.forRoot([
             { path: 'tasks', component: TaskListComponent },
             { path: 'heroes', component: HeroListComponent },
+            { path: 'django', component: DjangoHeroesComponent },
             { path: 'home', component: WelcomeComponent },
             // no route redirects to home
             { path: '', redirectTo: 'home', pathMatch: 'full' },
