@@ -12,6 +12,7 @@ export class DjangoHeroesComponent implements OnInit {
     django_heroes = [];
     hero = {'name': undefined, 'abilities': undefined};
     allOn = true;
+    updateHeroOn = false;
 
     ngOnInit() {
     }
@@ -19,6 +20,9 @@ export class DjangoHeroesComponent implements OnInit {
     // retrieves the list of all of our heroes using the DjangoHeroService and updates the hero list.
     getAllHeroes() {
         this.allOn = true;
+        this.updateHeroOn = false;
+        this.hero = {'name': undefined, 'abilities': undefined};
+
         let observable$ = this._djangoHeroesService.getDjangoHeroes();
         observable$.subscribe( data => {
             this.django_heroes = data["heroes"];
@@ -53,7 +57,13 @@ export class DjangoHeroesComponent implements OnInit {
         });
     }
     updateHeroes(event){
-        console.log(event)
         this.allOn = false;
+    }
+    updateHero(hero){
+        console.log(hero)
+        this.updateHeroOn = true;
+        this.hero.name = hero["name"];
+        this.hero.abilities = hero["abilities"];
+
     }
 }
