@@ -13,12 +13,15 @@ export class DjangoHeroesComponent implements OnInit {
     hero = {'name': undefined, 'abilities': undefined};
     allOn = true;
     updateHeroOn = false;
+    updateDjangoHeroId = undefined;
 
     ngOnInit() {
     }
 
     // retrieves the list of all of our heroes using the DjangoHeroService and updates the hero list.
     getAllHeroes() {
+
+        // clears entry and updates switches
         this.allOn = true;
         this.updateHeroOn = false;
         this.hero = {'name': undefined, 'abilities': undefined};
@@ -56,14 +59,24 @@ export class DjangoHeroesComponent implements OnInit {
             this.django_heroes = data["heroes"];
         });
     }
+
+    // switches to update page instead of all hero page
     updateHeroes(event){
         this.allOn = false;
     }
+    // fills form with updated hero clicked on
     updateHero(hero){
         console.log(hero)
         this.updateHeroOn = true;
         this.hero.name = hero["name"];
         this.hero.abilities = hero["abilities"];
+        this.updateDjangoHeroId = hero["id"];
+    }
+    updateDjangoHero(){
+        let id = this.updateDjangoHeroId
+        let hero = this.hero;
+        console.log("hero id: ", id)
+        console.log("hero: ", hero)
 
     }
 }
