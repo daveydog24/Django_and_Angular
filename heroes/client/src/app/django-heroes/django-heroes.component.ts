@@ -11,18 +11,23 @@ export class DjangoHeroesComponent implements OnInit {
     constructor(private _djangoHeroesService: DjangoHeroesService) {}
     django_heroes = [];
     hero = {'name': undefined, 'abilities': undefined};
+    allOn = true;
 
     ngOnInit() {
     }
+
+    // retrieves the list of all of our heroes using the DjangoHeroService and updates the hero list.
     getAllHeroes() {
+        this.allOn = true;
         let observable$ = this._djangoHeroesService.getDjangoHeroes();
         observable$.subscribe( data => {
-            console.log("in getAllHeroes method inside of.... django-heroes component. data: ", data);
             this.django_heroes = data["heroes"];
         });
     }
-    makeDjangoHero() {
 
+    // creates a new DjangoHero and after completion updates are hero list and clears our hero form template 
+    // that we have ngForm bound to
+    makeDjangoHero() {
         if (this.hero.name == undefined) {            
             alert("YOU NEED TO ENTER A NAME!!!!");
             return;
@@ -34,19 +39,21 @@ export class DjangoHeroesComponent implements OnInit {
         
         let observable$ = this._djangoHeroesService.makeDjangoHeroes(this.hero);
         observable$.subscribe( data => {
-            console.log("in makeDjanoHero method inside of.... django-heroes component. data: ", data);
             this.django_heroes = data["heroes"];
             this.hero = {'name': undefined, 'abilities': undefined};
         });
     }
 
+    // gets the hero object constructed from ngform and ngFor loop and then sends it
+    //  to our djangoHeroService and once completed updates the list sent back from our JSON response
     removeHero(hero){
-        console.log("in the django heroes component in the removeHero Method first line")
-        console.log(hero);
         let observable$ = this._djangoHeroesService.removeDjangoHero(hero);
         observable$.subscribe( data => {
-            console.log("in removeDjanoHero method inside of.... django-heroes component. data: ", data);
-            console.log("deleted?")
+            this.django_heroes = data["heroes"];
         });
+    }
+    updateHeroes(event){
+        console.log(event)
+        this.allOn = false;
     }
 }
