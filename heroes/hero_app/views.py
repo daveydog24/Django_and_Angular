@@ -8,8 +8,11 @@ from .models import Hero
 # easier we will be making use of Django's class based views.
  
 class Heroes(View):
+    # grabs all the hero objects and returns them in a list
     def get(self, request):
         return JsonResponse({'status': 'ok', 'heroes': list(Hero.objects.values().all())})
+
+    # takes our information in json and creates a hero object with it in our database
     def post(self, request):
         our_data = json.loads(request.body.decode())
         Hero.objects.create(name=our_data["name"], abilities=our_data['abilities'])
@@ -17,19 +20,19 @@ class Heroes(View):
  
 class HeroDetails(View):
     def get(self, request, hero_id):
+        print("in HERODETAILS GET method")
         return JsonResponse({'status': 'ok'})
+
     def post(self, request, hero_id):
+        print("in HERODETAILS POST method")
         our_data = json.loads(request.body.decode())
         print(our_data, type(our_data))
         return JsonResponse({'status': 'ok'})
-    # displays the hero number we get from the url  
-    # def get(self, request, hero_id):
-    #     return JsonResponse({'status': hero_id})
+
     def put(self, request, hero_id):
         return JsonResponse({'status': 'ok'})
+
+    # filters hero by id in the database and deletes that hero object
     def delete(self, request, hero_id):
-        return JsonResponse({'status': 'ok'})
-
-
-        # send back a json response dictionatry and parse through them as well
-        # use these vs angulars front end validations 
+        Hero.objects.filter(id=hero_id).delete()
+        return JsonResponse({'status': 'deleted'})

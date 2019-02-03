@@ -1,6 +1,85 @@
-<h1>Django Heroes Component</h1>
+<div class="container">
+    <section class="section main">
+        <div class="hero is-primary">
+            <div class="hero-body is-bold">
+                <h1 class="title">Django Heroes</h1>
+            </div>
+        </div>
+        <div class="box">
+            <form (submit)="makeDjangoHero()">
+                <div class="column">
+                    <div class="level"> 
+                        <div class="level-item">
+                            <p class="subtitle is-4">New Hero:</p>
+                        </div>
+                        <div class="level-item control has-icons-left">
+                            <input type="text" name="hero.name" [(ngModel)]="hero.name" placeholder="Hero Name" class="input" autoFocus/>
+                            <input type="text" name="hero.abilities" [(ngModel)]="hero.abilities" placeholder="Heroes main ability?" class="input" autoFocus/>
+                            <span class="icon is-small is-left">
+                                    <!-- <i class="fa fa-superpowers" aria-hidden="true"></i> -->
+                            </span>
+                        </div>
+                        <div class="level-item">
+                            <button type="submit" class="button is-link is-outlined">
+                                New Hero
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="tabs is-centered is-boxed">
+                <ul>
+                    <li class="is-active">
+                        <a (click)="getAllHeroes($event)">All</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="table-box">
+                <table class="table is-fullwidth is-hoverable">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%">Hero</th>
+                            <th style="width: 25%">Main Ability</th>
+                            <th style="width: 25%">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hero of django_heroes">
+                            <td>{{ hero.name }}</td>
+                            <td>{{ hero.abilities }}</td>
+                            <td>
+                                <a class="button is-small is-danger is-outlined" (click)="removeHero(hero)">
+                                    <span class="icon is-small">
+                                        <i class="fas fa-times-circle"></i>
+                                    </span>
+                                    <span>
+                                        Remove
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>Django Heroes Component</h1>
 
 <button (click)="getAllHeroes()"> Get All Heroes</button>
+<button (click)="makeDjangoHero()"> Make Hero</button>
 
 <div class="Wrapper">
     <tbody>
@@ -18,4 +97,4 @@
         </div>
         <button type="submit">Create Hero</button>
     </form>
-</div>
+</div> -->

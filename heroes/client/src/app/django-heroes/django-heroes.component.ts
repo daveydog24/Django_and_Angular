@@ -39,4 +39,14 @@ export class DjangoHeroesComponent implements OnInit {
             this.hero = {'name': undefined, 'abilities': undefined};
         });
     }
+
+    removeHero(hero){
+        console.log("in the django heroes component in the removeHero Method first line")
+        console.log(hero);
+        let observable$ = this._djangoHeroesService.removeDjangoHero(hero);
+        observable$.subscribe( data => {
+            console.log("in removeDjanoHero method inside of.... django-heroes component. data: ", data);
+            console.log("deleted?")
+        });
+    }
 }
