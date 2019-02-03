@@ -9,13 +9,19 @@ import { DjangoHeroesService } from '../django-heroes.service';
 
 export class DjangoHeroesComponent implements OnInit {
     constructor(private _djangoHeroesService: DjangoHeroesService) {}
+    // variables needed for dispalying information and all CRUD operations
     django_heroes = [];
-    hero = {'name': undefined, 'abilities': undefined};
+    hero = {
+        'name': undefined, 
+        'abilities': undefined
+    };
     allOn = true;
     updateHeroOn = false;
     updateDjangoHeroId = undefined;
 
+    // initializes our page with the heroes from our database;
     ngOnInit() {
+        this.getAllHeroes()
     }
 
     // retrieves the list of all of our heroes using the DjangoHeroService and updates the hero list.
@@ -64,7 +70,8 @@ export class DjangoHeroesComponent implements OnInit {
     updateHeroes(event){
         this.allOn = false;
     }
-    // fills form with updated hero clicked on
+
+    // fills form with updated hero when clicked on
     updateHero(hero){
         console.log(hero)
         this.updateHeroOn = true;
@@ -73,7 +80,8 @@ export class DjangoHeroesComponent implements OnInit {
         this.updateDjangoHeroId = hero["id"];
     }
 
-    // 
+    // gets the hero information and pass it + the id to our service that will send an http request to update the hero and 
+    // return the updated list once completed.
     updateDjangoHero(){
         let id = this.updateDjangoHeroId
         let hero = this.hero;
