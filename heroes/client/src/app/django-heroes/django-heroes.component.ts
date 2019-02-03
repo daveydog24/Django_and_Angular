@@ -72,11 +72,14 @@ export class DjangoHeroesComponent implements OnInit {
         this.hero.abilities = hero["abilities"];
         this.updateDjangoHeroId = hero["id"];
     }
+
+    // 
     updateDjangoHero(){
         let id = this.updateDjangoHeroId
         let hero = this.hero;
-        console.log("hero id: ", id)
-        console.log("hero: ", hero)
-
+        let observable$ = this._djangoHeroesService.updateDjangoHero(hero, id);
+        observable$.subscribe( data => {
+            this.django_heroes = data["heroes"];
+        });
     }
 }

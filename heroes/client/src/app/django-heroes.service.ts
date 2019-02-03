@@ -29,4 +29,7 @@ export class DjangoHeroesService {
         // }
         // callback();
     }
+    updateDjangoHero(hero, id){
+        return this._http.put(`/django/heroes/${id}`, hero)
+    }
 }
