@@ -1,8 +1,155 @@
-<h1>Welcome to the Sign In page!</h1>
-
-<h2>Login</h2>
-
-
-
-
-<h2>Registration</h2>
+<div class="container">
+    <section class="section main">
+        <div class="hero is-primary">
+            <div class="hero-body is-bold" style="background-color: green">
+                <h1 class="title">Sign In Page</h1>
+                <h1 *ngIf="loginOn">Login</h1>
+                <h1 *ngIf="!loginOn">Registration</h1>
+            </div>
+        </div>
+        <div class="box">            
+            <div class="tabs is-centered is-boxed">
+                <ul>
+                    <li class="is-active"><a (click)="login()">Login</a></li>
+                    <li class="is-active"><a (click)="registration()">Registation</a></li>
+                </ul>
+            </div>
+            <div class="table-box">
+                <div *ngIf="loginOn">
+                    <form (submit)="loginUser()">
+                        <div class="column">
+                            <div class="level"> 
+                                <label class="level-item left" style="width: 15%">Email:</label>
+                                <input
+                                    style="width: 50%"
+                                    type="loginemail"
+                                    id="loginemail"
+                                    name="loginemail" 
+                                    [(ngModel)]="newUser.loginemail" 
+                                    placeholder="Email" 
+                                    class="input" 
+                                    #loginemail="ngModel"
+                                    autoFocus
+                                    required
+                                    minlength="6" 
+                                />
+                                <span class="level-item right" style="width: 40%; display: inline-flex">
+                                    <p *ngIf="loginemail.errors && loginemail.touched" style="color:red">Not a valid Email</p>
+                                </span>
+                            </div>
+                            <div class="level"> 
+                                <label class="level-item left" style="width: 15%">Password:</label>
+                                <input
+                                    style="width: 50%"
+                                    type="loginpassword"
+                                    id="loginpassword"
+                                    name="loginpassword" 
+                                    [(ngModel)]="newUser.loginpassword" 
+                                    placeholder="Password" 
+                                    class="input" 
+                                    #loginpassword="ngModel"
+                                    autoFocus
+                                    required
+                                    minlength="8" 
+                                />
+                                <span class="level-item right" style="width: 40%; display: inline-flex">
+                                    <p *ngIf="loginpassword.errors  && loginpassword.touched"  style="color:red">Password must be 8 characters</p>
+                                    <!-- <p *ngIf="loginpassword.errors" style="color:red">{{loginpassword.errors | json }}</p> -->
+                                </span>
+                            </div>
+                            <div *ngIf="!email.errors && !password.errors" class="level">
+                                <button style="width: 40%" type="submit" class="button is-link is-outlined level-item center">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div *ngIf="!loginOn">
+                    <form (submit)="loginUser()">
+                        <div class="column">
+                            <div class="level"> 
+                                <label class="level-item left" style="width: 15%">First Name:</label>
+                                <input
+                                    style="width: 50%"
+                                    type="name"
+                                    id="firstname"
+                                    name="firstname" 
+                                    [(ngModel)]="user.firstname" 
+                                    placeholder="First Name" 
+                                    class="input" 
+                                    #firstname="ngModel"
+                                    autoFocus
+                                    required
+                                    minlength="3" 
+                                />
+                                <span class="level-item right" style="width: 40%; display: inline-flex">
+                                    <p *ngIf="firstname.errors && firstname.touched"  style="color:red">First name must be 3 characters</p>
+                                </span>
+                            </div>
+                            <div class="level"> 
+                                <label class="level-item left" style="width: 15%">Last Name:</label>
+                                <input
+                                    style="width: 50%"
+                                    type="text"
+                                    id="lastname"
+                                    name="lastname" 
+                                    [(ngModel)]="user.lastname" 
+                                    placeholder="Last Name" 
+                                    class="input" 
+                                    #lastname="ngModel"
+                                    autoFocus
+                                    required
+                                    minlength="3" 
+                                />
+                                <span class="level-item right" style="width: 40%; display: inline-flex">
+                                    <p *ngIf="lastname.errors && lastname.touched" style="color:red">Last name must be 3 characters</p>
+                                </span>
+                            </div>
+                            
+                            <div class="level"> 
+                                <label class="level-item left" style="width: 15%">Email:</label>
+                                <input
+                                    style="width: 50%"
+                                    type="email"
+                                    id="email"
+                                    name="email" 
+                                    [(ngModel)]="user.email" 
+                                    placeholder="Email" 
+                                    class="input" 
+                                    #email="ngModel"
+                                    autoFocus
+                                    required
+                                    minlength="6" 
+                                />
+                                <span class="level-item right" style="width: 40%; display: inline-flex">
+                                    <p *ngIf="email.errors  && email.touched"  style="color:red">Not a valid email</p>
+                                </span>
+                            </div>
+                            <div class="level"> 
+                                <label class="level-item left" style="width: 15%">Password:</label>
+                                <input
+                                    style="width: 50%"
+                                    type="password"
+                                    id="password"
+                                    name="password" 
+                                    [(ngModel)]="user.password" 
+                                    placeholder="Password" 
+                                    class="input" 
+                                    #password="ngModel"
+                                    autoFocus
+                                    required
+                                    minlength="5" 
+                                />
+                                <span class="level-item right" style="width: 40%; display: inline-flex">
+                                    <p *ngIf="password.errors && password.touched"  style="color:red">Password must be 8 characters</p>
+                                </span>
+                            </div>
+                            <div *ngIf="!email.errors && !password.errors" class="level">
+                                <button style="width: 40%" type="submit" class="button is-link is-outlined level-item center">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

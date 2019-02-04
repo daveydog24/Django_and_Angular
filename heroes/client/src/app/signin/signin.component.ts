@@ -6,10 +6,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+    loginOn = true;
+    user = {
+        'firstname': undefined,
+        'lastname': undefined,
+        'email': undefined,
+        'password': undefined
+    };
+    newUser = {
+        'loginemail': undefined,
+        'loginpassword': undefined
+    };
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
+    login(){
+        console.log("in login")
+        this.loginOn = true;
+    }
+    registration(){
+        console.log("in registration")
+        this.loginOn = false;
+    }
 
 }
