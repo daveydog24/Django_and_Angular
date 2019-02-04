@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+    signedIn = true;
     title = "David Wukelic's Home App Component";
     constructor() {}
+
+    signOut(){
+        this.signedIn = false;
+    }
 }

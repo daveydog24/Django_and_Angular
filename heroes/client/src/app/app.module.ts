@@ -19,6 +19,7 @@ import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
 import { TaskService } from './task.service';
 import { HeroesService } from './heroes.service';
 import { DjangoHeroesService } from './django-heroes.service';
+import { SigninComponent } from './signin/signin.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { DjangoHeroesService } from './django-heroes.service';
         HeroListComponent,
         WelcomeComponent,
         DjangoHeroesComponent,
+        SigninComponent,
     ],
     imports: [
         BrowserModule,
@@ -35,13 +37,14 @@ import { DjangoHeroesService } from './django-heroes.service';
         HttpClientModule,
         RouterModule.forRoot([
             { path: 'tasks', component: TaskListComponent },
+            { path: 'signin', component: SigninComponent },
             { path: 'heroes', component: HeroListComponent },
             { path: 'django', component: DjangoHeroesComponent },
             { path: 'home', component: WelcomeComponent },
             // no route redirects to home
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: '', redirectTo: 'signin', pathMatch: 'full' },
             // all other routes not matched will redirect to home
-            { path: '**', redirectTo: 'home', pathMatch: 'full' }
+            { path: '**', redirectTo: 'signin', pathMatch: 'full' }
         ])
     ],
     providers: [
