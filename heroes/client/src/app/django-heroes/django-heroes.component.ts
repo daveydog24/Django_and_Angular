@@ -18,6 +18,7 @@ export class DjangoHeroesComponent implements OnInit {
     allOn = true;
     updateHeroOn = false;
     updateDjangoHeroId = undefined;
+    entryValid = true;
 
     // initializes our page with the heroes from our database;
     ngOnInit() {
@@ -26,7 +27,6 @@ export class DjangoHeroesComponent implements OnInit {
 
     // retrieves the list of all of our heroes using the DjangoHeroService and updates the hero list.
     getAllHeroes() {
-
         // clears entry and updates switches
         this.allOn = true;
         this.updateHeroOn = false;
@@ -49,7 +49,6 @@ export class DjangoHeroesComponent implements OnInit {
             alert("YOU NEED TO ENTER A ABILITY!!!!");
             return;
         }
-        
         let observable$ = this._djangoHeroesService.makeDjangoHeroes(this.hero);
         observable$.subscribe( data => {
             this.django_heroes = data["heroes"];
@@ -73,13 +72,12 @@ export class DjangoHeroesComponent implements OnInit {
 
     // fills form with updated hero when clicked on
     updateHero(hero){
-        console.log(hero)
         this.updateHeroOn = true;
         this.hero.name = hero["name"];
         this.hero.abilities = hero["abilities"];
         this.updateDjangoHeroId = hero["id"];
     }
-
+    
     // gets the hero information and pass it + the id to our service that will send an http request to update the hero and 
     // return the updated list once completed.
     updateDjangoHero(){
