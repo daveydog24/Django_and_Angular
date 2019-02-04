@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -8,28 +9,43 @@ import { Component, OnInit } from '@angular/core';
 export class SigninComponent implements OnInit {
     loginOn = true;
     user = {
-        'firstname': undefined,
-        'lastname': undefined,
-        'email': undefined,
-        'password': undefined
+        'firstname': "",
+        'lastname': "",
+        'email': "",
+        'password': ""
     };
     newUser = {
-        'loginemail': undefined,
-        'loginpassword': undefined
+        'loginemail': "",
+        'loginpassword': ""
     };
+    displayUser;
 
-    constructor() { }
+    constructor(private router: Router) { }
 
     ngOnInit() {
     }
 
+    // activates login button and form
     login(){
-        console.log("in login")
         this.loginOn = true;
     }
+    // deactivates login back which activates registration form
     registration(){
-        console.log("in registration")
         this.loginOn = false;
+    }
+    loginUser(){
+        console.log(this.newUser)
+        console.log(this.newUser['loginemail'])
+        console.log(this.newUser['loginpassword'])
+    }
+    registerUser(){
+        console.log(this.user)
+        console.log(this.user['firstname'])
+        console.log(this.user['lastname'])
+        console.log(this.user['email'])
+        console.log(this.user['password'])
+        this.router.navigate(['/success']);
+        // this.router.navigateByUrl('<pathDefinedInRouteConfig>');
     }
 
 }

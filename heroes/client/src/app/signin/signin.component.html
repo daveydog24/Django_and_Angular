@@ -3,11 +3,11 @@
         <div class="hero is-primary">
             <div class="hero-body is-bold" style="background-color: green">
                 <h1 class="title">Sign In Page</h1>
-                <h1 *ngIf="loginOn">Login</h1>
-                <h1 *ngIf="!loginOn">Registration</h1>
             </div>
         </div>
-        <div class="box">            
+        <div class="box">
+            <h1 *ngIf="loginOn">Login</h1>
+            <h1 *ngIf="!loginOn">Registration</h1>
             <div class="tabs is-centered is-boxed">
                 <ul>
                     <li class="is-active"><a (click)="login()">Login</a></li>
@@ -57,14 +57,14 @@
                                     <!-- <p *ngIf="loginpassword.errors" style="color:red">{{loginpassword.errors | json }}</p> -->
                                 </span>
                             </div>
-                            <div *ngIf="!email.errors && !password.errors" class="level">
+                            <div *ngIf="!loginemail.errors && !loginpassword.errors" class="level">
                                 <button style="width: 40%" type="submit" class="button is-link is-outlined level-item center">Login</button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div *ngIf="!loginOn">
-                    <form (submit)="loginUser()">
+                    <form (submit)="registerUser()">
                         <div class="column">
                             <div class="level"> 
                                 <label class="level-item left" style="width: 15%">First Name:</label>
