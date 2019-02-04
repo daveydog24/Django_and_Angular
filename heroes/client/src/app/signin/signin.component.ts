@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SignInService } from '../sign-in.service';
+
 
 @Component({
   selector: 'app-signin',
@@ -20,7 +22,7 @@ export class SigninComponent implements OnInit {
     };
     displayUser;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private _signInService: SignInService) { }
 
     ngOnInit() {
     }
@@ -44,6 +46,9 @@ export class SigninComponent implements OnInit {
         console.log(this.user['lastname'])
         console.log(this.user['email'])
         console.log(this.user['password'])
+
+        // should make this  a promise eventually and make sure user is updated before rerouting.
+        this._signInService.updateLoggedInUser(this.user)
         this.router.navigate(['/success']);
         // this.router.navigateByUrl('<pathDefinedInRouteConfig>');
     }

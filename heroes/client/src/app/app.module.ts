@@ -13,14 +13,15 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { HeroListComponent } from './hero-list/hero-list.component'
 import { WelcomeComponent } from './welcome/welcome.component';
 import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
+import { SigninComponent } from './signin/signin.component';
+import { SuccessComponent } from './success/success.component';
 
 // Services
 
 import { TaskService } from './task.service';
 import { HeroesService } from './heroes.service';
 import { DjangoHeroesService } from './django-heroes.service';
-import { SigninComponent } from './signin/signin.component';
-import { SuccessComponent } from './success/success.component';
+import { SignInService } from './sign-in.service';
 
 
 @NgModule({
