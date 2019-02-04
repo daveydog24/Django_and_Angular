@@ -39,6 +39,10 @@ export class SigninComponent implements OnInit {
         console.log(this.newUser)
         console.log(this.newUser['loginemail'])
         console.log(this.newUser['loginpassword'])
+
+        // should make this a promise eventually and make sure user is updated and in the system before rerouting.
+        this._signInService.logInUser(this.newUser)
+        this.router.navigate(['/success']);
     }
     registerUser(){
         console.log(this.user)
