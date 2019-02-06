@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DjangoHeroesService } from '../django-heroes.service';
+import { SignInService } from '../sign-in.service';
+import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'app-django-heroes',
@@ -8,7 +11,11 @@ import { DjangoHeroesService } from '../django-heroes.service';
 })
 
 export class DjangoHeroesComponent implements OnInit {
-    constructor(private _djangoHeroesService: DjangoHeroesService) {}
+    constructor(
+        private _djangoHeroesService: DjangoHeroesService, 
+        private _signInService: SignInService,
+        private _router: Router
+    ) {}
     // variables needed for dispalying information and all CRUD operations
     django_heroes = [];
     hero = {
@@ -22,7 +29,15 @@ export class DjangoHeroesComponent implements OnInit {
 
     // initializes our page with the heroes from our database;
     ngOnInit() {
-        this.getAllHeroes()
+        this._signInService.retrieveLoggedInUser(callback => {
+            if (callback != undefined) {
+                alert("we have a user");
+                this.getAllHeroes()
+            }
+            else {
+                this._router.navigate(['/signin']);            
+            }
+        })
     }
 
     // retrieves the list of all of our heroes using the DjangoHeroService and updates the hero list.

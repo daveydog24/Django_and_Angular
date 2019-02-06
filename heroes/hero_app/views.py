@@ -3,6 +3,7 @@ from django.http import JsonResponse
 from django.views import View
 import json
 from .models import Hero
+from .models import User
 
 # To make setting up our Django server with RESTful routes 
 # easier we will be making use of Django's class based views.
@@ -30,3 +31,15 @@ class HeroDetails(View):
     def delete(self, request, hero_id):
         Hero.objects.filter(id=hero_id).delete()
         return JsonResponse({'status': 'ok', 'heroes': list(Hero.objects.values().all())})
+
+
+class Users(View):
+    # grabs all the hero objects and returns them in a list
+    def get(self, request):
+        return JsonResponse({'status': 'ok', 'user': list(User.objects.values().all())})
+
+    # takes our information in json and creates a User object with it in our database and then sends back the updated list
+    def post(self, request):
+        our_data = json.loads(request.body.decode())
+        User.objects.create(firstname=our_data["firstname"], lastname=our_data["lastname"], email=our_data["email"], password=our_data['password'])
+        return JsonResponse({'status': 'ok', 'user': list(User.objects.values().all())})

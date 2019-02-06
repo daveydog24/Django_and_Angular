@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class SignInService {
     loggedInUser;
 
-    constructor() { }
+    constructor(private _http: HttpClient) { }
 
     logInUser(user){
         // eventually should recieve a callback as well from a promise so we can perform success and reject scenarios...  
@@ -27,6 +28,14 @@ export class SignInService {
     retrieveLoggedInUser(callback){
         return callback(this.loggedInUser);
     }
+    logOutUser(){
+        this.loggedInUser = undefined;
+    }
 
+
+//  *************************************************
+    getHttpHero(user){
+        return this._http.post('/users', user);
+    }
 
 }

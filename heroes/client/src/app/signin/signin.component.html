@@ -1,7 +1,7 @@
 <div class="container">
     <section class="section main">
         <div class="hero is-primary">
-            <div class="hero-body is-bold" style="background-color: green">
+            <div class="hero-body is-bold" style="background-color: red">
                 <h1 class="title">Sign In Page</h1>
             </div>
         </div>
@@ -17,7 +17,7 @@
             <div class="table-box">
                 <div *ngIf="loginOn">
                     <form (submit)="loginUser()">
-                        <div class="column">
+]                        <div class="column">
                             <div class="level"> 
                                 <label class="level-item left" style="width: 15%">Email:</label>
                                 <input
@@ -58,13 +58,14 @@
                                 </span>
                             </div>
                             <div *ngIf="!loginemail.errors && !loginpassword.errors" class="level">
-                                <button style="width: 40%" type="submit" class="button is-link is-outlined level-item center">Login</button>
+                                <button style="width: 40%" type="submit" class="button is-link is-outlined level-item center">Sign in</button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div *ngIf="!loginOn">
-                    <form (submit)="registerUser()">
+                    <!-- <form (submit)="registerUser()">  old workin service can delete if database routing working.-->
+                        <form (submit)="registerHTTP_hero()">
                         <div class="column">
                             <div class="level"> 
                                 <label class="level-item left" style="width: 15%">First Name:</label>
@@ -144,7 +145,7 @@
                                 </span>
                             </div>
                             <div *ngIf="!email.errors && !password.errors" class="level">
-                                <button style="width: 40%" type="submit" class="button is-link is-outlined level-item center">Register</button>
+                                <button style="width: 40%" type="submit" class="button is-link is-outlined level-item center">Sign Up!</button>
                             </div>
                         </div>
                     </form>

@@ -18,6 +18,15 @@
                         <li><a [routerLink]="['/heroes']">Angular Routed Heroes</a></li>
                         <li><a [routerLink]="['/django']">Django Routed Heroes</a></li>
                     </nav>
+                    <!-- WORKING ROUTES ONCE WE FIGURE OUT ON OFF SWITCH -->
+                    <!-- <nav>
+                        <li><a *ngIf="signedIn" [routerLink]="['/signin']" (click)="signOut()" >Sign Out</a></li>
+                        <li><a *ngIf="!signedIn" [routerLink]="['/signin']">Sign In</a></li>
+                        <li><a [routerLink]="['/home']">Home</a></li>
+                        <li><a *ngIf="signedIn" [routerLink]="['/tasks']">Tasks</a></li>
+                        <li><a *ngIf="signedIn" [routerLink]="['/heroes']">Angular Routed Heroes</a></li>
+                        <li><a *ngIf="signedIn" [routerLink]="['/django']">Django Routed Heroes</a></li>
+                    </nav> -->
                 </div>
             </div>
             <div id="bottom">

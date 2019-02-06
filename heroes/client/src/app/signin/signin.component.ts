@@ -21,6 +21,7 @@ export class SigninComponent implements OnInit {
         'loginpassword': ""
     };
     displayUser;
+    djangoHTTPhero;
 
     constructor(private router: Router, private _signInService: SignInService) { }
 
@@ -44,17 +45,34 @@ export class SigninComponent implements OnInit {
         this._signInService.logInUser(this.newUser)
         this.router.navigate(['/success']);
     }
-    registerUser(){
+    registerHTTP_hero(){
         console.log(this.user)
         console.log(this.user['firstname'])
         console.log(this.user['lastname'])
         console.log(this.user['email'])
         console.log(this.user['password'])
-
-        // should make this  a promise eventually and make sure user is updated before rerouting.
-        this._signInService.updateLoggedInUser(this.user)
+        
+        let observable$ = this._signInService.getHttpHero(this.user);
+        observable$.subscribe( data => {
+            this.djangoHTTPhero = data["users"];
+            alert("you just got your new hero in the databaSe i think....")
+            alert(this.djangoHTTPhero)
+            console.log(this.djangoHTTPhero)
+        });        
         this.router.navigate(['/success']);
-        // this.router.navigateByUrl('<pathDefinedInRouteConfig>');
     }
-
 }
+// *****************************************************************************************
+// old working services
+// registerUser(){
+//     console.log(this.user)
+//     console.log(this.user['firstname'])
+//     console.log(this.user['lastname'])
+//     console.log(this.user['email'])
+//     console.log(this.user['password'])
+
+    // should make this  a promise eventually and make sure user is updated before rerouting.
+    // this._signInService.updateLoggedInUser(this.user)
+    // this.router.navigate(['/success']);
+    // this.router.navigateByUrl('<pathDefinedInRouteConfig>');
+// }

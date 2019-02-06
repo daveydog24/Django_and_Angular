@@ -1,6 +1,25 @@
-<div>
-    <button (click)="signOut()">Sign out</button>
+<div class="container">
+    <section class="section main">
+        <div class="hero is-primary">
+            <div class="hero-body is-bold" style="background-color: green">
+                <h1 class="title">Success</h1>
+            </div>
+        </div>
+        <div class="box">
+            <div class="tabs is-centered is-boxed">
+                <h1> You have Succesfully Registered!!!</h1>
+                <!-- <h1> You have Succesfully Logged In Welcome Back!!!</h1> -->
+
+
+                <button (click)="signOut()">Sign out</button>
+            </div>
+
+            <div class="table-box">
+                <h1> {{displayUser | json}}</h1>
+            </div>
+        </div>
+    </section>
 </div>
-<h1> You have Succesfully Registered!!!</h1>
+
+
 <!-- <h1> You have Succesfully Logged In Welcome Back!!!</h1> -->
-<h1> {{displayUser | json}}</h1>
