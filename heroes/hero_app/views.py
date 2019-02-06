@@ -102,9 +102,9 @@ class LoginUser(View):
                 return JsonResponse({'status': 'ok', 'user': logged_user})
             else:
                 return JsonResponse({'status': 'error', 'error': "INCORRECT PASSWORD AND EMAIL COMBO"})
-                
+
 # ###################  LATER WE CAN KEEP TRACK OF THESE SO PEOPLE CANT LOG IN MORE THAN 5 TIMES OR SOMETHING ######################
-        return JsonResponse({'status': 'erro', 'error': "WE DO NOT HAVE A MATCHING EMAIL IN OUR DATABASE, SORRY."})
+        return JsonResponse({'status': 'error', 'error': "WE DO NOT HAVE A MATCHING EMAIL IN OUR DATABASE, SORRY."})
 
 
 # class UpdateUser(View):

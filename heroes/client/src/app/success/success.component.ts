@@ -35,8 +35,6 @@ export class SuccessComponent implements OnInit {
     }
 
     signOut(){
-        // alert("You are all signed out, have a great day!")
-        // this should go log the user and on completion reoute the user
         this._signInService.logOutUser();
         this._router.navigate(['/signin']);
     }

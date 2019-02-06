@@ -150,6 +150,13 @@
                         </div>
                     </form>
                 </div>
+                <div class="table-box">
+                    <div *ngIf="errors">
+                        <div *ngFor="let error of errors">
+                            <h3>{{error}}</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

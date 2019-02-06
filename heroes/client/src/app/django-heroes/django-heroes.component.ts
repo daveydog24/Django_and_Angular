@@ -102,4 +102,9 @@ export class DjangoHeroesComponent implements OnInit {
             this.django_heroes = data["heroes"];
         });
     }
+
+    signOut(){
+        this._signInService.logOutUser();
+        this._router.navigate(['/signin']);
+    }
 }

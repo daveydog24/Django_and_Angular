@@ -9,7 +9,7 @@ import { SignInService } from '../sign-in.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-    loginOn = true;
+    loginOn: boolean = true;
     djangoHTTPhero;
     user = {
         'firstname': "",
@@ -21,6 +21,7 @@ export class SigninComponent implements OnInit {
         'loginemail': "",
         'loginpassword': ""
     };
+    errors: Array<any> = []
 
     constructor(
         private router: Router, 
@@ -42,10 +43,11 @@ export class SigninComponent implements OnInit {
 
     // CHECKS TO SEE IF RETURNING USER IS IN THE DATABASE, STORES LOGGED IN USER AND NAVIGATES TO SUCCESS
     loginUser(){
+        this.errors = [];
         let observable$ = this._signInService.logInUser(this.returnUser);
         observable$.subscribe(data => {
             if (data['error']) {
-                alert(data['error'])
+                this.errors.push(data['error'])
             } else {
                 this.djangoHTTPhero = data["user"];
                 this._signInService.updateLoggedInUser(this.djangoHTTPhero);
@@ -56,14 +58,15 @@ export class SigninComponent implements OnInit {
         
     // REGISTERS NEW USER IN THE DATABASE, STORES LOGGED IN USER AND NAVIGATES TO SUCCESS
     registerHTTP_hero(){
-        let observable$ = this._signInService.addUser(this.user);
+        this.errors = []; //emptys out any old errors
+        let observable$ = this._signInService.addUser(this.user); //sets up an observable to listen to when addUser finishes
         observable$.subscribe( data => {
             if (data['error']) {
-                alert(data['error'])
+                this.errors.push(data['error']) // if an error was sent back it will store it and display it
             } else {
-            this.djangoHTTPhero = data["user"];
-            this._signInService.updateLoggedInUser(this.djangoHTTPhero);
-            this.router.navigate(['/success']);
+            this.djangoHTTPhero = data["user"]; 
+            this._signInService.updateLoggedInUser(this.djangoHTTPhero); //updates the currently logged in user
+            this.router.navigate(['/success']); // navigates to the success page
             }
         });        
     }
