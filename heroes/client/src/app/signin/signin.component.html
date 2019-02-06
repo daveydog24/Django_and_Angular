@@ -17,7 +17,7 @@
             <div class="table-box">
                 <div *ngIf="loginOn">
                     <form (submit)="loginUser()">
-]                        <div class="column">
+                        <div class="column">
                             <div class="level"> 
                                 <label class="level-item left" style="width: 15%">Email:</label>
                                 <input
@@ -25,7 +25,7 @@
                                     type="loginemail"
                                     id="loginemail"
                                     name="loginemail" 
-                                    [(ngModel)]="newUser.loginemail" 
+                                    [(ngModel)]="returnUser.loginemail" 
                                     placeholder="Email" 
                                     class="input" 
                                     #loginemail="ngModel"
@@ -44,7 +44,7 @@
                                     type="loginpassword"
                                     id="loginpassword"
                                     name="loginpassword" 
-                                    [(ngModel)]="newUser.loginpassword" 
+                                    [(ngModel)]="returnUser.loginpassword" 
                                     placeholder="Password" 
                                     class="input" 
                                     #loginpassword="ngModel"

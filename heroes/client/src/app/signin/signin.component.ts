@@ -10,18 +10,18 @@ import { SignInService } from '../sign-in.service';
 })
 export class SigninComponent implements OnInit {
     loginOn = true;
+    displayUser;
+    djangoHTTPhero;
     user = {
         'firstname': "",
         'lastname': "",
         'email': "",
         'password': ""
     };
-    newUser = {
+    returnUser = {
         'loginemail': "",
         'loginpassword': ""
     };
-    displayUser;
-    djangoHTTPhero;
 
     constructor(private router: Router, private _signInService: SignInService) { }
 
@@ -36,23 +36,36 @@ export class SigninComponent implements OnInit {
     registration(){
         this.loginOn = false;
     }
-    loginUser(){
-        console.log(this.newUser)
-        console.log(this.newUser['loginemail'])
-        console.log(this.newUser['loginpassword'])
 
-        // should make this a promise eventually and make sure user is updated and in the system before rerouting.
-        this._signInService.logInUser(this.newUser)
-        this.router.navigate(['/success']);
+    loginUser(){
+        let observable$ = this._signInService.logInUser(this.returnUser);
+
+        observable$.subscribe(data => {
+            if (data["user"]) {
+                if (this.returnUser.loginemail == data["user"].email && this.returnUser.loginpassword == data["user"].password ){
+                    alert("they match!!!")
+                } else {
+                    alert("password and email didnt match")
+                }
+                console.log(data)
+                alert("got back user info")
+                this.displayUser = data["user"];
+                this.router.navigate(['/success']);
+            } else {
+                alert("no user info sent back or not correctly")
+                console.log(data)
+            }
+        });        
     }
+
     registerHTTP_hero(){
-        console.log(this.user)
-        console.log(this.user['firstname'])
-        console.log(this.user['lastname'])
-        console.log(this.user['email'])
-        console.log(this.user['password'])
+        // console.log(this.user)
+        // console.log(this.user['firstname'])
+        // console.log(this.user['lastname'])
+        // console.log(this.user['email'])
+        // console.log(this.user['password'])
         
-        let observable$ = this._signInService.getHttpHero(this.user);
+        let observable$ = this._signInService.addUser(this.user);
         observable$.subscribe( data => {
             this.djangoHTTPhero = data["users"];
             alert("you just got your new hero in the databaSe i think....")
@@ -64,6 +77,17 @@ export class SigninComponent implements OnInit {
 }
 // *****************************************************************************************
 // old working services
+
+
+// loginUser(){
+//     console.log(this.newUser)
+//     console.log(this.newUser['loginemail'])
+//     console.log(this.newUser['loginpassword'])
+//     should make this a promise eventually and make sure user is updated and in the system before rerouting.
+//     this._signInService.logInUser(this.newUser)
+//     this.router.navigate(['/success']);
+// }
+
 // registerUser(){
 //     console.log(this.user)
 //     console.log(this.user['firstname'])

@@ -10,32 +10,32 @@ export class SignInService {
 
     constructor(private _http: HttpClient) { }
 
-    logInUser(user){
-        // eventually should recieve a callback as well from a promise so we can perform success and reject scenarios...  
-
-        // check data base to see if the user is in the system
-
-            // if not return with errors
-
-            // if successfull return success and the rest of users information
-            
-            // then update current user to be logged in  ---> 
-            this.updateLoggedInUser(user);
-    }
-    updateLoggedInUser(user){
-        this.loggedInUser = user;
-    }
-    retrieveLoggedInUser(callback){
-        return callback(this.loggedInUser);
-    }
     logOutUser(){
         this.loggedInUser = undefined;
     }
 
-
-//  *************************************************
-    getHttpHero(user){
-        return this._http.post('/users', user);
+    updateLoggedInUser(user){
+        this.loggedInUser = user;
+    }
+    
+    retrieveLoggedInUser(callback){
+        return callback(this.loggedInUser);
     }
 
+    // uses django and http routing to pass user info, check and validates the user exist and sends the info back
+    logInUser(user){
+        return this._http.post('/user/login', user)
+    }
+    // uses django and http routing to post a new user in our databse.
+    addUser(user){
+        return this._http.post('/user/add', user);
+    }
+    
+//  *************************************************
+    // experimental uses or stuff to be delete later
+
+    // we shouldnt need to get all users ("if so not all the senstive information at least")
+    getUsers(){
+        return this._http.get('/users/all');
+    }
 }

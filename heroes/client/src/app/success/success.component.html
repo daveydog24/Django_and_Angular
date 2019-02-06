@@ -16,6 +16,24 @@
 
             <div class="table-box">
                 <h1> {{displayUser | json}}</h1>
+                <table  class="table is-fullwidth is-hoverable">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%">First Name</th>
+                            <th style="width: 25%">Last Name</th>
+                            <th style="width: 25%">Email</th>
+                            <th style="width: 25%">Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.firstname }}</td>
+                            <td>{{ user.lastname }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.password }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>

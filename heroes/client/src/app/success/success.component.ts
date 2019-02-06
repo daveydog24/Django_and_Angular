@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SuccessComponent implements OnInit {
     displayUser;
+    users;
 
     constructor(
         private _router: Router, 
@@ -20,6 +21,13 @@ export class SuccessComponent implements OnInit {
         this._signInService.retrieveLoggedInUser(retrievedData => {
             this.displayUser = retrievedData;
         })
+        this.getAllUsers()
+    }
+    getAllUsers() {
+        let observable$ = this._signInService.getUsers();
+        observable$.subscribe( data => {
+            this.users = data['users'];
+        });
     }
 
     signOut(){
