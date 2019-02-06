@@ -7,7 +7,6 @@ from .models import User
 
 # To make setting up our Django server with RESTful routes 
 # easier we will be making use of Django's class based views.
- 
 class Heroes(View):
     # GRABS ALL OF OUR HEROES IN THE DATABASE AND RETURNS THE LIST
     def get(self, request):
@@ -39,7 +38,7 @@ class AddUser(View):
         user = list(User.objects.values().all().filter(email=our_data['email']))
         # IF EMAIL ALREADY IN THE SYSTEM RETURN THE ERROR
         if (user):
-            return JsonResponse({'status': 'bad', 'error': "EMAIL IS ALREADY IN THE SYSTEM"})
+            return JsonResponse({'status': 'error', 'error': "EMAIL IS ALREADY IN THE SYSTEM"})
         # ELSE CREATE THE NEW USER IN THE SYSTEM AND SEND BACK THE USERS INFORMATION WITHOUT PASSWORD
         else: 
             User.objects.create(
@@ -101,8 +100,11 @@ class LoginUser(View):
                     "last_login": last_login
                 }
                 return JsonResponse({'status': 'ok', 'user': logged_user})
-        
-        return JsonResponse({'status': 'error'})
+            else:
+                return JsonResponse({'status': 'error', 'error': "INCORRECT PASSWORD AND EMAIL COMBO"})
+                
+# ###################  LATER WE CAN KEEP TRACK OF THESE SO PEOPLE CANT LOG IN MORE THAN 5 TIMES OR SOMETHING ######################
+        return JsonResponse({'status': 'erro', 'error': "WE DO NOT HAVE A MATCHING EMAIL IN OUR DATABASE, SORRY."})
 
 
 # class UpdateUser(View):
