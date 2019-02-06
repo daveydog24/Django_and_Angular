@@ -44,9 +44,13 @@ export class SigninComponent implements OnInit {
     loginUser(){
         let observable$ = this._signInService.logInUser(this.returnUser);
         observable$.subscribe(data => {
-            this.djangoHTTPhero = data["user"];
-            this._signInService.updateLoggedInUser(this.djangoHTTPhero);
-            this.router.navigate(['/success']);
+            if (data['error']) {
+                alert(data['error'])
+            } else {
+                this.djangoHTTPhero = data["user"];
+                this._signInService.updateLoggedInUser(this.djangoHTTPhero);
+                this.router.navigate(['/success']);
+            }
         });
     }
         
@@ -54,9 +58,13 @@ export class SigninComponent implements OnInit {
     registerHTTP_hero(){
         let observable$ = this._signInService.addUser(this.user);
         observable$.subscribe( data => {
-            this.djangoHTTPhero = data["users"];
+            if (data['error']) {
+                alert(data['error'])
+            } else {
+            this.djangoHTTPhero = data["user"];
             this._signInService.updateLoggedInUser(this.djangoHTTPhero);
             this.router.navigate(['/success']);
+            }
         });        
     }
 }

@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class SignInService {
     loggedInUser;
+    UserJustRegistered;
 
     constructor(private _http: HttpClient) { }
 
@@ -28,11 +29,13 @@ export class SignInService {
 
     // USES DJANGO AND HTTP ROUTING TO LOGIN IN A USER IF VALIDATED FROM OUR DATABASE.
     logInUser(user){
+        this.UserJustRegistered= false;
         return this._http.post('/user/login', user)
     }
     
     // USES DJANGO AND HTTP ROUTING TO ADD A NEW USER IN OUR DATABASE WITH PASSED IN FORM DATA.
     addUser(user){
+        this.UserJustRegistered= true;
         return this._http.post('/user/add', user);
     }
     
@@ -43,5 +46,13 @@ export class SignInService {
     // we shouldnt need to get all users ("if so not all the senstive information at least")
     getUsers(){
         return this._http.get('/users/all');
+    }
+
+
+    // #############################     NOT NEED ONCE WE FORMAT AND CHANGE LAST LOGIN BECAUSE THEN 
+    // #############################     WE CAN SUBTRACT THE DAY OR SOMETHING OR COMPARE CREATED AT AND RETURN ANSWER
+    // TRACKS HOW THE USER LOGS IN AND RETURNS THE VALUE.
+    getUserSignInMethod(){
+        return this.UserJustRegistered;
     }
 }

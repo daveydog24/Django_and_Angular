@@ -7,10 +7,8 @@
         </div>
         <div class="box">
             <div class="tabs is-centered is-boxed">
-                <h1> You have Succesfully Registered!!!</h1>
-                <!-- <h1> You have Succesfully Logged In Welcome Back!!!</h1> -->
-
-
+                <h1 *ngIf="registered"> You have Succesfully Registered!!!</h1>
+                <h1 *ngIf="!registered"> You have Succesfully Logged In Welcome Back!!!</h1>
                 <button (click)="signOut()">Sign out</button>
             </div>
 
@@ -26,9 +24,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <br>
+                        <h2>All other Users below</h2>
                         <tr *ngFor="let user of users">
-                            <td>{{ user.firstname }}</td>
-                            <td>{{ user.lastname }}</td>
+                            <td>{{ user.first_name }}</td>
+                            <td>{{ user.last_name }}</td>
                             <td>{{ user.email }}</td>
                             <td>{{ user.password }}</td>
                         </tr>

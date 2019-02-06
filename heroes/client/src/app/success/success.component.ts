@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class SuccessComponent implements OnInit {
     displayUser;
     users;
+    registered;
 
     constructor(
         private _router: Router, 
@@ -20,8 +21,11 @@ export class SuccessComponent implements OnInit {
     ngOnInit() {
         this._signInService.retrieveLoggedInUser(retrievedData => {
             this.displayUser = retrievedData;
+            this.getAllUsers()
+            let registered_check = this._signInService.getUserSignInMethod();
+            this.registered = registered_check;
         })
-        this.getAllUsers()
+
     }
     getAllUsers() {
         let observable$ = this._signInService.getUsers();

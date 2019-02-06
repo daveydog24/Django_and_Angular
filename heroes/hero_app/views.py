@@ -35,7 +35,31 @@ class HeroDetails(View):
 class AddUser(View):
     def post(self, request):
         our_data = json.loads(request.body.decode())
-        User.objects.create(firstname=our_data["firstname"], lastname=our_data["lastname"], email=our_data["email"], password=our_data['password'])
+
+        user = list(User.objects.values().all().filter(email=our_data['email']))
+        # IF EMAIL ALREADY IN THE SYSTEM RETURN THE ERROR
+        if (user):
+            return JsonResponse({'status': 'bad', 'error': "EMAIL IS ALREADY IN THE SYSTEM"})
+        # ELSE CREATE THE NEW USER IN THE SYSTEM AND SEND BACK THE USERS INFORMATION WITHOUT PASSWORD
+        else: 
+            User.objects.create(
+                first_name= our_data["firstname"], 
+                last_name= our_data["lastname"], 
+                email= our_data["email"], 
+                password= our_data['password'],
+            )
+            user = list(User.objects.values().all().filter(email=our_data['email']))
+
+            # ONLY WANT TO SEND BACK SENSITIVE INFORMATION
+            logged_user = {
+                "first_name": user[0]["first_name"],
+                "last_name": user[0]["last_name"],
+                "email": user[0]["email"],
+                "created_at": user[0]["created_at"],
+                "updated_at": user[0]["updated_at"],
+                "last_login": user[0]["last_login"]
+            }
+            return JsonResponse({'status': 'ok', 'user': logged_user})
         return JsonResponse({'status': 'ok'})
     
 # GRABS ALL THE USERS IN OUR DATABASE AND RETURNS THEM IN A LIST
@@ -61,14 +85,20 @@ class LoginUser(View):
             password = user[0]["password"]
 
             if (login_email == email and login_password == password):
-                first_name = user[0]["firstname"]
-                last_name = user[0]["lastname"]
+                first_name = user[0]["first_name"]
+                last_name = user[0]["last_name"]
+                created_at = user[0]["created_at"]
+                updated_at = user[0]["updated_at"]
+                last_login = user[0]["last_login"]
 
                 # only want to send back non sensitve information 
                 logged_user = {
-                    "firstname": first_name,
-                    "lastname": last_name,
-                    "email": email
+                    "first_name": first_name,
+                    "last_name": last_name,
+                    "email": email,
+                    "created_at": created_at,
+                    "updated_at": updated_at,
+                    "last_login": last_login
                 }
                 return JsonResponse({'status': 'ok', 'user': logged_user})
         
