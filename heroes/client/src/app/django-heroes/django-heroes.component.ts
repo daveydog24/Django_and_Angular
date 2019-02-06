@@ -34,7 +34,7 @@ export class DjangoHeroesComponent implements OnInit {
                 this.getAllHeroes()
             }
             else {
-                this._router.navigate(['/signin']);            
+                this._router.navigate(['/home']);            
             }
         })
     }
@@ -101,10 +101,5 @@ export class DjangoHeroesComponent implements OnInit {
         observable$.subscribe( data => {
             this.django_heroes = data["heroes"];
         });
-    }
-
-    signOut(){
-        this._signInService.logOutUser();
-        this._router.navigate(['/signin']);
     }
 }

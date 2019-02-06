@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../heroes.service';
+import { SignInService } from '../sign-in.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-hero-list',
@@ -11,10 +13,20 @@ export class HeroListComponent implements OnInit {
     hero = {'name': undefined, 'abilities': undefined};
     heroes = [];
 
-    constructor(private _heroesService: HeroesService) {}
+    constructor(
+        private _signInService: SignInService,
+        private _router: Router,
+        private _heroesService: HeroesService
+    ) {}
     
     // later this will get all info asynch and then only display or not display when the button is clicked.
-    ngOnInit() {}
+    ngOnInit() {
+        this._signInService.retrieveLoggedInUser(callback => {
+            if (callback == undefined) {
+                this._router.navigate(['/home']);            
+            }
+        })
+    }
 
     // access our hero service to get all the heroes in the service and eventually from the database.
     getAll(event){

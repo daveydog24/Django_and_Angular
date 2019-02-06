@@ -20,10 +20,15 @@ export class SuccessComponent implements OnInit {
 
     ngOnInit() {
         this._signInService.retrieveLoggedInUser(retrievedData => {
-            this.displayUser = retrievedData;
-            this.getAllUsers()
-            let registered_check = this._signInService.getUserSignInMethod();
-            this.registered = registered_check;
+            if (retrievedData != undefined) {
+                this.displayUser = retrievedData;
+                this.getAllUsers()
+                let registered_check = this._signInService.getUserSignInMethod();
+                this.registered = registered_check;
+            }
+            else{
+                this._router.navigate(['/home']); 
+            }
         })
 
     }

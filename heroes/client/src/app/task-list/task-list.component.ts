@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
+import { SignInService } from '../sign-in.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-task-list',
@@ -8,13 +10,25 @@ import { TaskService } from '../task.service';
 })
 
 export class TaskListComponent implements OnInit {
-    constructor(private _taskService: TaskService) { }
+    constructor(
+        private _signInService: SignInService,
+        private _router: Router,
+        private _taskService: TaskService
+    ){}
+
     task = {'task': '', 'isComplete': false};
     tasks = [];
     mode = 'all';
 
     ngOnInit() {
-        this.getAll('');
+        this._signInService.retrieveLoggedInUser(callback => {
+            if (callback != undefined) {
+                this.getAll('');
+            }
+            else {
+                this._router.navigate(['/home']);            
+            }
+        })
     }
     getAll(e){
         this.setActive(e);

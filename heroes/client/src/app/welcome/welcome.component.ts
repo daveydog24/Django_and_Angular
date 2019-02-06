@@ -15,10 +15,10 @@ export class WelcomeComponent implements OnInit {
     ){}
 
     ngOnInit() {
-    }
-
-    signOut(){
-        this._signInService.logOutUser();
-        this._router.navigate(['/signin']);
+        this._signInService.retrieveLoggedInUser(callback => {
+            if (callback == undefined) {
+                this._router.navigate(['/home']);            
+            }
+        })
     }
 }

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SignInService } from './sign-in.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -9,10 +11,25 @@ import { Component } from '@angular/core';
 export class AppComponent {
     signedIn = true;
     title = "David Wukelic's Home App Component";
-    constructor() {}
+
+    constructor(
+        private _signInService: SignInService,
+        private _router: Router
+    ){}
+
+    ngOnInit() {
+        this._signInService.retrieveLoggedInUser(callback => {
+            if (callback == undefined) {
+                this._router.navigate(['/home']);            
+            }
+            else {
+                this.signedIn = true;
+            }
+        })
+    }
 
     signOut(){
-        this.signedIn = false;
+        this.signedIn = true;
     }
 }
 
