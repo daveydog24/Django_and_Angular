@@ -10,29 +10,35 @@ export class SignInService {
 
     constructor(private _http: HttpClient) { }
 
+    // WHEN CALLED IT CLEARS THE LOGGED IN USER
     logOutUser(){
+        // #####################  EVENTUALL THIS WILL ALL BE DOWN WITH SESSION.   ###########################
         this.loggedInUser = undefined;
     }
 
-    updateLoggedInUser(user){
-        this.loggedInUser = user;
-    }
-    
+    // WHEN CALLED IT RETURNS THE CURRENT USER INFO LOGGED IN IF ANY.
     retrieveLoggedInUser(callback){
         return callback(this.loggedInUser);
     }
 
-    // uses django and http routing to pass user info, check and validates the user exist and sends the info back
+    // SENT FROM THE SIGN IN PAGE THIS WILL UPDATE THE CURRENT LOGGED IN USER.
+    updateLoggedInUser(user){
+        this.loggedInUser = user;
+    }
+
+    // USES DJANGO AND HTTP ROUTING TO LOGIN IN A USER IF VALIDATED FROM OUR DATABASE.
     logInUser(user){
         return this._http.post('/user/login', user)
     }
-    // uses django and http routing to post a new user in our databse.
+    
+    // USES DJANGO AND HTTP ROUTING TO ADD A NEW USER IN OUR DATABASE WITH PASSED IN FORM DATA.
     addUser(user){
         return this._http.post('/user/add', user);
     }
     
-//  *************************************************
-    // experimental uses or stuff to be delete later
+    //  ***********************************************************************************
+                    // experimental uses or stuff to be delete later
+    //  ***********************************************************************************
 
     // we shouldnt need to get all users ("if so not all the senstive information at least")
     getUsers(){

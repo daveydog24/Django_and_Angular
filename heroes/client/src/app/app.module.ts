@@ -39,16 +39,18 @@ import { SignInService } from './sign-in.service';
         FormsModule,
         HttpClientModule,
         RouterModule.forRoot([
+            // ######################   ROUTE GUARDS WILL EVENTUALLY BE ADDED FOR THE COMPONENTS ########################
             { path: 'home', component: WelcomeComponent },
             { path: 'tasks', component: TaskListComponent },
             { path: 'django', component: DjangoHeroesComponent },
             { path: 'heroes', component: HeroListComponent },
             { path: 'signin', component: SigninComponent },
             { path: 'success', component: SuccessComponent },
-            // no route redirects to home
+            // NO ROUTE DIRECTES TO SIGN IN PAGE
             { path: '', redirectTo: 'signin', pathMatch: 'full' },
-            // all other routes not matched will redirect to home
+            // ALL OTHER ROUTES NOT MATCHING OTHER PATHS WILL REROUTE TO SIGN IN
             { path: '**', redirectTo: 'signin', pathMatch: 'full' }
+        
         ])
     ],
     providers: [

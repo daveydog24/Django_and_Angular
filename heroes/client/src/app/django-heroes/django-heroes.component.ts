@@ -31,7 +31,6 @@ export class DjangoHeroesComponent implements OnInit {
     ngOnInit() {
         this._signInService.retrieveLoggedInUser(callback => {
             if (callback != undefined) {
-                alert("we have a user");
                 this.getAllHeroes()
             }
             else {
@@ -64,7 +63,7 @@ export class DjangoHeroesComponent implements OnInit {
             alert("YOU NEED TO ENTER A ABILITY!!!!");
             return;
         }
-        let observable$ = this._djangoHeroesService.makeDjangoHeroes(this.hero);
+        let observable$ = this._djangoHeroesService.createDjangoHero(this.hero);
         observable$.subscribe( data => {
             this.django_heroes = data["heroes"];
             this.hero = {'name': undefined, 'abilities': undefined};
@@ -75,7 +74,7 @@ export class DjangoHeroesComponent implements OnInit {
     //  to our djangoHeroService and once completed updates the list sent back from our JSON response
     removeHero(hero){
         let observable$ = this._djangoHeroesService.removeDjangoHero(hero);
-        observable$.subscribe( data => {
+        observable$.subscribe(data => {
             this.django_heroes = data["heroes"];
         });
     }

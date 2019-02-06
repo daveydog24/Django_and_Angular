@@ -6,29 +6,24 @@ import { HttpClient } from '@angular/common/http';
 })
  
 export class DjangoHeroesService {
-    constructor(private _http: HttpClient ) {}
+    constructor(private _http: HttpClient) {}
 
+    // USES DJANGO AND HTTP ROUTING TO GET ALL HEROES IN OUR DATABASE
     getDjangoHeroes(){
         return this._http.get('/django/heroes');
     }
-
-    makeDjangoHeroes(hero){
+    
+    // USES DJANGO AND HTTP ROUTING TO CREATE A NEW HERO IN OUR DATABASE WITH DATA FROM OUR FORM PASSED IN
+    createDjangoHero(hero){
         return this._http.post('/django/heroes', hero);
     }
-
+    
+    // USES DJANGO AND HTTP ROUTING TO DELETE HERO IN OUR DATABASE THAT WAS SELECTED AND PASSED IN
     removeDjangoHero(hero){
-        console.log("in the django-heroes-service in the removeDjangoHero Method");
-        // what you should use to delete and get the id
-        // console.log("hero.id:", hero.id)
         return this._http.delete(`/django/heroes/${hero.id}`, hero)
-        // for(let i=0; i<this.tasks.length; i++){
-        //     if(this.tasks[i] == task){
-        //         this.tasks.splice(i, 1);
-        //         break;
-        //     }
-        // }
-        // callback();
     }
+
+    // USES DJANGO AND HTTP ROUTING TO UPDATE AN EXISTING HERO WITH THE PASSED IN INFORMATION
     updateDjangoHero(hero, id){
         return this._http.put(`/django/heroes/${id}`, hero)
     }

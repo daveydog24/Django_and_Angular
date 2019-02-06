@@ -10,7 +10,6 @@ import { SignInService } from '../sign-in.service';
 })
 export class SigninComponent implements OnInit {
     loginOn = true;
-    displayUser;
     djangoHTTPhero;
     user = {
         'firstname': "",
@@ -23,56 +22,42 @@ export class SigninComponent implements OnInit {
         'loginpassword': ""
     };
 
-    constructor(private router: Router, private _signInService: SignInService) { }
+    constructor(
+        private router: Router, 
+        private _signInService: SignInService
+    ){}
 
     ngOnInit() {
     }
 
-    // activates login button and form
+    // ACTIVATES LOGIN SWITCH AND FORM
     login(){
         this.loginOn = true;
     }
-    // deactivates login back which activates registration form
+
+    // DEACTIVATES LOGIN SWITCH AND LOGIN FORM AND ACTIVATES REGISTRATION FORM
     registration(){
         this.loginOn = false;
     }
 
+    // CHECKS TO SEE IF RETURNING USER IS IN THE DATABASE, STORES LOGGED IN USER AND NAVIGATES TO SUCCESS
     loginUser(){
         let observable$ = this._signInService.logInUser(this.returnUser);
-
         observable$.subscribe(data => {
-            if (data["user"]) {
-                if (this.returnUser.loginemail == data["user"].email && this.returnUser.loginpassword == data["user"].password ){
-                    alert("they match!!!")
-                } else {
-                    alert("password and email didnt match")
-                }
-                console.log(data)
-                alert("got back user info")
-                this.displayUser = data["user"];
-                this.router.navigate(['/success']);
-            } else {
-                alert("no user info sent back or not correctly")
-                console.log(data)
-            }
-        });        
+            this.djangoHTTPhero = data["user"];
+            this._signInService.updateLoggedInUser(this.djangoHTTPhero);
+            this.router.navigate(['/success']);
+        });
     }
-
-    registerHTTP_hero(){
-        // console.log(this.user)
-        // console.log(this.user['firstname'])
-        // console.log(this.user['lastname'])
-        // console.log(this.user['email'])
-        // console.log(this.user['password'])
         
+    // REGISTERS NEW USER IN THE DATABASE, STORES LOGGED IN USER AND NAVIGATES TO SUCCESS
+    registerHTTP_hero(){
         let observable$ = this._signInService.addUser(this.user);
         observable$.subscribe( data => {
             this.djangoHTTPhero = data["users"];
-            alert("you just got your new hero in the databaSe i think....")
-            alert(this.djangoHTTPhero)
-            console.log(this.djangoHTTPhero)
+            this._signInService.updateLoggedInUser(this.djangoHTTPhero);
+            this.router.navigate(['/success']);
         });        
-        this.router.navigate(['/success']);
     }
 }
 // *****************************************************************************************

@@ -16,14 +16,15 @@ Including another URLconf
 
 # path is the new django feature over the old url function.
 from django.urls import path
-from hero_app.views import Heroes, HeroDetails, LoginUser, AddUser, DeleteUser, UpdateUser, GetUsers
+from hero_app.views import Heroes, HeroDetails, LoginUser, AddUser, GetUsers
+# from hero_app.views import Heroes, HeroDetails, LoginUser, AddUser, DeleteUser, UpdateUser, GetUsers
  
 urlpatterns = [
-    path( 'user/add', AddUser.as_view() ), # adds one user
-    path( 'user/login', LoginUser.as_view() ), # gets one user to view
-    path( 'user/delete/<int:user_id>', DeleteUser.as_view() ), # deletes one user
-    path( 'user/update/<int:user_id>', UpdateUser.as_view() ), # updates one user
-    path( 'users/all', GetUsers.as_view() ), # gets all users
-    path( 'django/heroes', Heroes.as_view() ), # gets all heroes or adds to the list; 
-    path( 'django/heroes/<int:hero_id>', HeroDetails.as_view() ), # updates or deletes specific hero.
+    path( 'user/add', AddUser.as_view() ), # ADDS A SINGLE USER
+    path( 'user/login', LoginUser.as_view() ), # LOGS IN USER
+    path( 'users/all', GetUsers.as_view() ), # GETS A LIST OF ALL USERS
+    path( 'django/heroes', Heroes.as_view() ), # GETS A LIST OF ALL USERS OR ADDS A NEW HERO
+    path( 'django/heroes/<int:hero_id>', HeroDetails.as_view() ), # UPDATES OR DELETES A SPECIFIC USER FROM THEIR ID #
+    # path( 'user/delete/<int:user_id>', DeleteUser.as_view() ), # DELETES A SINGLE USER
+    # path( 'user/update/<int:user_id>', UpdateUser.as_view() ), # UPDATES A SINGLE USER
 ]
