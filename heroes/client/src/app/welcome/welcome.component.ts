@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 
 export class WelcomeComponent implements OnInit {
+    errorSwitch;
     constructor(
         private _signInService: SignInService,
         private _router: Router
@@ -17,7 +18,11 @@ export class WelcomeComponent implements OnInit {
     ngOnInit() {
         this._signInService.retrieveLoggedInUser(callback => {
             if (callback == undefined) {
+                this.errorSwitch = true;
                 this._router.navigate(['/home']);            
+            }
+            else {
+                this.errorSwitch = false;
             }
         })
     }
