@@ -1,0 +1,13 @@
+#container{
+    align-content: center;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+#top {
+    margin: 10px;
+}
+#bottom{
+    border: 2px solid black;
+}

@@ -1,0 +1,20 @@
+<div id="container">
+    <h1>Dojo Weather Forecast</h1>
+    <div id="top">
+        <a [routerLink]="['']">Current Dojo Location</a> | 
+        <a [routerLink]="['burbank']">Burbank, CA</a> | 
+        <a [routerLink]="['chicago']">Chicago, IL</a> | 
+        <a [routerLink]="['dallas']">Dallas, TX</a> |
+        <a [routerLink]="['sanjose']">Oakland, CA</a> | 
+        <!-- i couldnt get san jose to work.. even looked through their api and i dont think they -->
+        <!-- have san jose california so i switched it to oakland -->
+        <a [routerLink]="['seattle']">Seattle, WA</a> | 
+        <a [routerLink]="['dc']">Washington D.C.</a>
+    </div>
+    <fieldset id="bottom">
+            <legend>Router Outlet</legend>
+            <router-outlet></router-outlet>
+    </fieldset>
+    <!-- // our navigation links can go here. -->
+    <!-- // our partial views will load inside the router-outlet tag below. -->
+</div>

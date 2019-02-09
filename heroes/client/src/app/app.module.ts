@@ -20,6 +20,7 @@ import { SuccessComponent } from './success/success.component';
 import { TaskService } from './task.service';
 import { DjangoHeroesService } from './django-heroes.service';
 import { SignInService } from './sign-in.service';
+import { WeatherComponent } from './weather/weather.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { SignInService } from './sign-in.service';
         DjangoHeroesComponent,
         SigninComponent,
         SuccessComponent,
+        WeatherComponent,
     ],
     imports: [
         BrowserModule,
@@ -42,10 +44,19 @@ import { SignInService } from './sign-in.service';
             { path: 'django', component: DjangoHeroesComponent },
             { path: 'signin', component: SigninComponent },
             { path: 'success', component: SuccessComponent },
+            { path: 'weather', component: WeatherComponent },
             // NO ROUTE DIRECTES TO SIGN IN PAGE
             { path: '', redirectTo: 'signin', pathMatch: 'full' },
             // ALL OTHER ROUTES NOT MATCHING OTHER PATHS WILL REROUTE TO SIGN IN
             { path: '**', redirectTo: 'signin', pathMatch: 'full' }
+
+            // extra for original weather
+            // { path: 'burbank', component: BurbankComponent },
+            // { path: 'chicago', component: ChicagoComponent },
+            // { path: 'dallas', component: DallasComponent },
+            // { path: 'sanjose', component: SanJoseComponent },
+            // { path: 'seattle', component: SeattleComponent },
+            // { path: 'dc', component: WashingtonDCComponent },
         
         ])
     ],
