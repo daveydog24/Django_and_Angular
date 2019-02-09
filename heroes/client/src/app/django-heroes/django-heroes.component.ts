@@ -80,7 +80,7 @@ export class DjangoHeroesComponent implements OnInit {
     }
 
     // switches to update page instead of all hero page
-    updateHeroes(event){
+    updateHeroes(){
         this.allOn = false;
     }
 
