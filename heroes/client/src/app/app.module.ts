@@ -10,7 +10,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
-import { HeroListComponent } from './hero-list/hero-list.component'
 import { WelcomeComponent } from './welcome/welcome.component';
 import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
 import { SigninComponent } from './signin/signin.component';
@@ -19,7 +18,6 @@ import { SuccessComponent } from './success/success.component';
 // Services
 
 import { TaskService } from './task.service';
-import { HeroesService } from './heroes.service';
 import { DjangoHeroesService } from './django-heroes.service';
 import { SignInService } from './sign-in.service';
 
@@ -28,7 +26,6 @@ import { SignInService } from './sign-in.service';
     declarations: [
         AppComponent,
         TaskListComponent,
-        HeroListComponent,
         WelcomeComponent,
         DjangoHeroesComponent,
         SigninComponent,
@@ -43,7 +40,6 @@ import { SignInService } from './sign-in.service';
             { path: 'home', component: WelcomeComponent },
             { path: 'tasks', component: TaskListComponent },
             { path: 'django', component: DjangoHeroesComponent },
-            { path: 'heroes', component: HeroListComponent },
             { path: 'signin', component: SigninComponent },
             { path: 'success', component: SuccessComponent },
             // NO ROUTE DIRECTES TO SIGN IN PAGE
@@ -55,7 +51,6 @@ import { SignInService } from './sign-in.service';
     ],
     providers: [
         TaskService,
-        HeroesService,
         DjangoHeroesService,
     ],
     bootstrap: [

@@ -29,6 +29,7 @@ export class AppComponent {
     }
 
     signOut(){
+        this._signInService.logOutUser();
         this.signedIn = true;
     }
 }
