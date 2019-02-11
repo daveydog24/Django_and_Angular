@@ -1,8 +1,10 @@
-<div id="top">
-    <h1> GitHub Battle </h1> 
-    <a [routerLink]="['battle']">Battle</a> | 
-    <a [routerLink]="['rankings']">Rankings</a> | 
-</div>
-<div id="bottom">
-    <router-outlet ></router-outlet>
+<div *ngIf="buttonON" id="container">
+    <div id="top">
+        <h1> GitHub Battle </h1> 
+        <a [routerLink]="['battle']">Battle</a> | 
+        <a [routerLink]="['rankings']">Rankings</a> | 
+    </div>
+    <div id="bottom">
+        <router-outlet ></router-outlet>
+    </div>
 </div>
