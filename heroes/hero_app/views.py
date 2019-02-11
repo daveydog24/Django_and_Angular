@@ -4,6 +4,7 @@ from django.views import View
 import json
 from .models import Hero
 from .models import User
+from .models import GithubPlayer
 
 # To make setting up our Django server with RESTful routes 
 # easier we will be making use of Django's class based views.
@@ -120,3 +121,26 @@ class LoginUser(View):
     # def delete(self, request, user_id):
     #     User.objects.filter(id=user_id).delete()
     #     return JsonResponse({'status': 'ok'})
+
+class AddGithubPlayer(View):
+    def post(self, request):
+        our_data = json.loads(request.body.decode())
+
+        find_player = list(GithubPlayer.objects.values().all().filter(username=our_data['username']))
+        if (not find_player):
+            GithubPlayer.objects.create(
+                username= our_data["username"], 
+                score= our_data["score"], 
+                pic= our_data["pic"], 
+            )
+
+        player = {
+            "username": find_player[0]["username"],
+            "score": find_player[0]["score"],
+            "pic": find_player[0]["pic"],
+        }
+        return JsonResponse({'status': 'ok', 'player': player})
+
+class GetGithubPlayers(View):
+    def get(self, request):
+        return JsonResponse({'status': 'ok', 'players': list(GithubPlayer.objects.values().all())})

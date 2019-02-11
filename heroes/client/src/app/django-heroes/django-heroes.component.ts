@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DjangoHeroesService } from '../django-heroes.service';
-import { SignInService } from '../sign-in.service';
+import { DjangoHeroesService } from '../services/django-heroes.service';
+import { SignInService } from '../services/sign-in.service';
 import { Router } from '@angular/router';
 
 

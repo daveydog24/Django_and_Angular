@@ -33,7 +33,6 @@ import { DjangoHeroesService } from './services/django-heroes.service';
 import { SignInService } from './services/sign-in.service';
 import { CityWeatherService } from './services/city-weather.service';
 
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -66,7 +65,29 @@ import { CityWeatherService } from './services/city-weather.service';
             { path: 'signin', component: SigninComponent },
             { path: 'success', component: SuccessComponent },
             { path: 'weather', component: WeatherComponent },
-            { path: 'githubBattle', component: GithubBattleComponent },
+            {   
+                path: 'github',
+                component: GithubBattleComponent,
+                children: [
+                    {
+                        path: '',
+                        pathMatch: 'prefix', 
+                        redirectTo: 'battle',
+                    },
+                    {
+                        path: 'battle',
+                        component: BattleComponent,
+                    },
+                    {
+                        path: 'rankings',
+                        component: RankingsComponent,
+                    },
+                    {
+                        path: 'results',
+                        component: ResultsComponent,
+                    },
+                ]
+            },
             // NO ROUTE DIRECTES TO SIGN IN PAGE
             { path: '', redirectTo: 'signin', pathMatch: 'full' },
             // ALL OTHER ROUTES NOT MATCHING OTHER PATHS WILL REROUTE TO SIGN IN

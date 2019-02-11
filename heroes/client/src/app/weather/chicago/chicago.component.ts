@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CityWeatherService } from '../../city-weather.service';
+import { CityWeatherService } from '../../services/city-weather.service';
 
 @Component({
     selector: 'app-chicago',

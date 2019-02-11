@@ -12,3 +12,8 @@ class User(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     last_login = models.DateTimeField(auto_now=True)
+
+class GithubPlayer(models.Model):
+    username = models.CharField(max_length=255)
+    score = models.CharField(max_length=255)
+    pic = models.CharField(max_length=255)

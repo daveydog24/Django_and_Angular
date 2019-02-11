@@ -1,0 +1,20 @@
+button{
+    background-color: black;
+    color: white;
+}
+#right{
+    border: 2px solid black;
+}
+
+#left, #right{
+    display: inline-block;
+    margin: 10px;
+}
+
+#top h3,h4{
+    color: green;
+}
+
+#bottom h3, h4{
+    color: red;
+}

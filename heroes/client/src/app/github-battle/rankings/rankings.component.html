@@ -1,3 +1,18 @@
-<p>
-  rankings works!
-</p>
+<div id="wrapper">
+    <h1>Rankings</h1>
+    <div id="content">
+        <!-- loop through players and keep track of the index as well -->
+        <!-- need to figure out how to sort a certain way.... -->
+        <div *ngFor="let player of players; let i = index">
+            <div class="left"> 
+                <h1>{{i+1}}</h1> 
+            </div>
+        <div class="middle">
+            <img src="{{player.pic}}" alt="{{player.name}}'s profile picture'">
+            <h3>{{player.name}}</h3>  
+        </div>
+        <div class="right"> 
+            <h2>Score:{{player.score}}</h2> 
+        </div>
+    </div>
+</div>

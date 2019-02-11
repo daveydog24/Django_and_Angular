@@ -1,3 +1,21 @@
-<p>
-  results works!
-</p>
+<div id="wrapper">
+    <div id="left">
+        <div id="top">
+            <h1 [ngStyle]="{'color': 'green'}">1st Place</h1>
+            <h2 [ngStyle]="{'color': 'green'}">{{winner.winnerName}} (Score: {{winner.winnerScore}})</h2>
+        </div>
+        <div id="bottom">
+            <h1 [ngStyle]="{'color': 'red'}">2nd Place</h1>
+            <h2 [ngStyle]="{'color': 'red'}">{{loser.loserName}} (Score: {{loser.loserScore}})</h2>
+        </div>
+    </div>
+    <div id="right">
+        <div id="rightTop">
+            <img src="{{winner.winnerPic}}" alt="winners pic"> 
+        </div>
+        <div id="rightBottom">
+            <small>{{winner.winnerName}}</small>
+        </div>
+    </div>
+    <button (click)="reset()">Reset</button>
+</div>

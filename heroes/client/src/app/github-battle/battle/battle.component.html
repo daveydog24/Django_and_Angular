@@ -1,3 +1,77 @@
-<p>
-  battle works!
-</p>
+<div id="wrapper">
+    <div id="player1">
+        <div id="form1" *ngIf="!formOneOFF"> <!-- is on initially but turns off once we find a valid user -->
+            <h1>Player 1</h1>
+
+            <!-- form for user1 -->
+            <form (submit)="onSubmit1($event, userForm1)" #userForm1='ngForm'>
+            <div>
+                <label for="">GitHub Username:</label>
+                <input 
+                    name="name1" 
+                    id="name1" 
+                    type="text"
+                    [(ngModel)]="user1" 
+                    required
+                    #username1="ngModel"
+                >
+            <!-- error message that will pop up if user 1 not found -->
+            <div 
+                class="error" 
+                *ngIf="user1NotFound"> GitHub user name not found, please choose another
+            </div>
+            </div>
+                <button [disabled]="!userForm1.valid" >Get User</button>
+            </form>
+        </div>
+
+        <!-- DIV to dispaly user THAT TURNS ON ONCE THE FORM1 IS OFF  -->
+        <div id="user1Displayed" *ngIf="formOneOFF">
+            <h1>{{user1Name}}</h1>
+            <div>
+                <img src="{{user1Pic}}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="player2">
+        <div id="form2" *ngIf="!formTwoOFF"><!-- is on initially but turns off once we find a valid user -->
+            <h1>Player 2</h1>
+
+            <!-- form for user2 -->
+            <form (submit)="onSubmit2($event,userForm2)" #userForm2='ngForm'>
+            <div>
+                <label for="">GitHub Username:</label>
+                <input 
+                    name="name2" 
+                    id="name2" 
+                    type="text"
+                    [(ngModel)]="user2" 
+                    required
+                    #username2="ngModel"
+                >
+            <!-- error message top pop up if user2 not found -->
+            <div 
+                class="error" 
+                *ngIf="user2NotFound"> GitHub user name not found, please choose another
+            </div>
+            </div>
+                <button [disabled]="!userForm2.valid" >Get User</button>
+            </form>
+        </div>
+
+        <!-- DIV THAT displays user 2 and TURNS ON ONCE THE FORM IS OFF  -->
+        <div id="user2Displayed" *ngIf="formTwoOFF">
+            <h1>{{user2Name}}</h1>
+            <div>
+                <img src="{{user2Pic}}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- once form1 && form2 valid and have turned on this will turn on -->
+    <div id="battle" *ngIf="formOneOFF && formTwoOFF">
+            <!-- once you click the button the battle starts -->
+        <button (click)="battleTime()">BATTLE</button>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+#wrapper{
+    align-content: top;
+}
+#player1, #player2{
+    border: 2px solid black;
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    height: 400px;
+    vertical-align: top;
+}
+.error{
+    color: red;
+}
+#battle button{
+    background-color: orange;
+    width: 250px;
+    font-size: 35px;
+
+}
+img{
+    width: 200px;
+    height: 200px;
+}
