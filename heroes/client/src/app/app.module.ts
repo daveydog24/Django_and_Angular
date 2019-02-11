@@ -29,6 +29,7 @@ import { DjangoHeroesService } from './django-heroes.service';
 import { SignInService } from './sign-in.service';
 import { CityWeatherService } from './city-weather.service';
 import { GithubBattleComponent } from './github-battle/github-battle.component';
+import { BattleComponent } from './github-battle/battle/battle.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { GithubBattleComponent } from './github-battle/github-battle.component';
         OaklandComponent,
         SeattleComponent,
         WashingtonDCComponent,
-        GithubBattleComponent
+        GithubBattleComponent,
+        BattleComponent
     ],
     imports: [
         BrowserModule,
