@@ -14,6 +14,6 @@ class User(models.Model):
     last_login = models.DateTimeField(auto_now=True)
 
 class GithubPlayer(models.Model):
-    username = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     score = models.CharField(max_length=255)
     pic = models.CharField(max_length=255)
