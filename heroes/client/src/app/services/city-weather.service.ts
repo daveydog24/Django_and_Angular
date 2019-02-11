@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { City } from '../weather/city';
+import { City } from '../components/weather/city';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable()

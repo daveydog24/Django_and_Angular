@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Player } from '../github-battle/player';
+import { Player } from '../components/github-battle/player';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 import 'rxjs';

@@ -9,22 +9,22 @@ import { RouterModule } from '@angular/router';
 // Components
 
 import { AppComponent } from './app.component';
-import { TaskListComponent } from './task-list/task-list.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
-import { SigninComponent } from './signin/signin.component';
-import { SuccessComponent } from './success/success.component';
-import { WeatherComponent } from './weather/weather.component';
-import { BurbankComponent } from './weather/burbank/burbank.component';
-import { ChicagoComponent } from './weather/chicago/chicago.component';
-import { DallasComponent } from './weather/dallas/dallas.component';
-import { OaklandComponent } from './weather/oakland/oakland.component';
-import { SeattleComponent } from './weather/seattle/seattle.component';
-import { WashingtonDCComponent } from './weather/washington-dc/washington-dc.component';
-import { GithubBattleComponent } from './github-battle/github-battle.component';
-import { BattleComponent } from './github-battle/battle/battle.component';
-import { RankingsComponent } from './github-battle/rankings/rankings.component';
-import { ResultsComponent } from './github-battle/results/results.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { DjangoHeroesComponent } from './components/django-heroes/django-heroes.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { SuccessComponent } from './components/success/success.component';
+import { WeatherComponent } from './components/weather/weather.component';
+import { BurbankComponent } from './components/weather/burbank/burbank.component';
+import { ChicagoComponent } from './components/weather/chicago/chicago.component';
+import { DallasComponent } from './components/weather/dallas/dallas.component';
+import { OaklandComponent } from './components/weather/oakland/oakland.component';
+import { SeattleComponent } from './components/weather/seattle/seattle.component';
+import { WashingtonDCComponent } from './components/weather/washington-dc/washington-dc.component';
+import { GithubBattleComponent } from './components/github-battle/github-battle.component';
+import { BattleComponent } from './components/github-battle/battle/battle.component';
+import { RankingsComponent } from './components/github-battle/rankings/rankings.component';
+import { ResultsComponent } from './components/github-battle/results/results.component';
 
 // Services
 
