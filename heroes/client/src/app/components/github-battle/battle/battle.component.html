@@ -15,7 +15,7 @@
                     required
                     #username1="ngModel"
                 >
-            <!-- error message that will pop up if user 1 not found -->
+            <!-- error message that will pop up if user 1 is not found -->
             <div 
                 class="error" 
                 *ngIf="user1NotFound"> GitHub user name not found, please choose another
@@ -25,11 +25,11 @@
             </form>
         </div>
 
-        <!-- DIV to dispaly user THAT TURNS ON ONCE THE FORM1 IS OFF  -->
+        <!-- DIV to display user THAT TURNS ON ONCE THE FORM1 IS OFF and valid entry in found  -->
         <div id="user1Displayed" *ngIf="formOneOFF">
             <h1>{{user1Name}}</h1>
             <div>
-                <img src="{{user1Pic}}" alt="">
+                <img src="{{user1Pic}}" alt="Player 1's profile_avatar image">
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
                     required
                     #username2="ngModel"
                 >
-            <!-- error message top pop up if user2 not found -->
+            <!-- error message top pop up if user2 is not found -->
             <div 
                 class="error" 
                 *ngIf="user2NotFound"> GitHub user name not found, please choose another
@@ -60,16 +60,16 @@
             </form>
         </div>
 
-        <!-- DIV THAT displays user 2 and TURNS ON ONCE THE FORM IS OFF  -->
+        <!-- DIV THAT displays user 2 and TURNS ON ONCE THE FORM 2 IS OFF and a valid entry is found -->
         <div id="user2Displayed" *ngIf="formTwoOFF">
             <h1>{{user2Name}}</h1>
             <div>
-                <img src="{{user2Pic}}" alt="">
+                <img src="{{user2Pic}}" alt="Player 2's profile_avatar image">
             </div>
         </div>
     </div>
 
-    <!-- once form1 && form2 valid and have turned on this will turn on -->
+    <!-- once form1 && form2 are valid and have turned on this will turn on -->
     <div id="battle" *ngIf="formOneOFF && formTwoOFF">
             <!-- once you click the button the battle starts -->
         <button (click)="battleTime()">BATTLE</button>

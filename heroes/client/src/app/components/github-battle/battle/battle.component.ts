@@ -14,7 +14,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export class BattleComponent implements OnInit {
     player: Player = new Player();
-    players  
+    players;
     //  not sure what type this should be ^^^^^^
 
     formOneOFF: boolean = false;
@@ -39,7 +39,7 @@ export class BattleComponent implements OnInit {
     ngOnInit() {
     }
     
-    // retrieves information for user1 using the service
+    // USES ARE GITHUB SERVICE TO FIND AND VALIDATE A USER FOR PLAYER 1 AND UPDATES ALL VARIABLES
     onSubmit1(event: Event, form: NgForm){
         event.preventDefault();
 
@@ -61,6 +61,7 @@ export class BattleComponent implements OnInit {
                     this.user1NotFound = true;
                 }       
             },
+            // handles errors
             (errors) => { 
                 console.log(errors)
                 this.user1NotFound = true;
@@ -68,7 +69,7 @@ export class BattleComponent implements OnInit {
         )
     }
 
-    // retrieves information for user1 using the service
+    // USES ARE GITHUB SERVICE TO FIND AND VALIDATE A USER FOR PLAYER 2 AND UPDATES ALL VARIABLES
     onSubmit2(event: Event, form: NgForm){
         event.preventDefault();
 
@@ -96,7 +97,7 @@ export class BattleComponent implements OnInit {
         )
     }
 
-    // function triggered from battle button 
+    // FUNCTION TRIGGERED ONCE THE BATTLE BUTTON IS CLICKED TO FIND THE WINNER AND LOSER 
     battleTime(){
         // this section checks for current users and if there is switches the booleans
         this._githubService.players.subscribe(
