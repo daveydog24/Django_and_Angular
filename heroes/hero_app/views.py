@@ -126,13 +126,13 @@ class AddGithubPlayer(View):
     def post(self, request):
         our_data = json.loads(request.body.decode())
 
+        
+        GithubPlayer.objects.create(
+            name= our_data["name"], 
+            score= our_data["score"], 
+            pic= our_data["pic"], 
+        )
         find_player = list(GithubPlayer.objects.values().all().filter(name=our_data['name']))
-        if (not find_player):
-            GithubPlayer.objects.create(
-                name= our_data["name"], 
-                score= our_data["score"], 
-                pic= our_data["pic"], 
-            )
 
         player = {
             "name": find_player[0]["name"],

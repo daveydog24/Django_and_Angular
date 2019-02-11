@@ -26,6 +26,6 @@ export class ResultsComponent implements OnInit {
 
     // when the reset button is clicked it reroutes us home
     reset(){
-        this.router.navigate(['/battle'])
+        this.router.navigate(['/github/battle'])
     }
 }

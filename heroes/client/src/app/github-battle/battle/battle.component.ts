@@ -160,6 +160,6 @@ export class BattleComponent implements OnInit {
         }
         console.log('battling....');
         this._githubService.battleStats(this.winner,this.loser)
-        this.router.navigate(['/results'])
+        this.router.navigate(['/github/results'])
     }
 }

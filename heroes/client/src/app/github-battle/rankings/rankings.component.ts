@@ -7,7 +7,7 @@ import { GithubBattleService } from '../../services/github-battle.service';
   styleUrls: ['./rankings.component.css']
 })
 export class RankingsComponent implements OnInit {
-    players: object;
+    players;
 
     constructor(private _githubService: GithubBattleService) { }
 
@@ -15,7 +15,8 @@ export class RankingsComponent implements OnInit {
     ngOnInit() {
         this._githubService.players.subscribe(
             (players) => { 
-                this.players = players; 
+                this.players = players['players']; 
+                console.log(players);
             }
         );
     }
