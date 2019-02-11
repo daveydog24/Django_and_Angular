@@ -3,12 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { CityWeatherService } from '../../city-weather.service'
 
 @Component({
-    selector: 'app-washington-dc',
-    templateUrl: './washington-dc.component.html',
-    styleUrls: ['./washington-dc.component.css']
+    selector: 'app-oakland',
+    templateUrl: './oakland.component.html',
+    styleUrls: ['./oakland.component.css']
 })
-export class WashingtonDCComponent implements OnInit {
-    city: string = 'washington';
+export class OaklandComponent implements OnInit {
+    city: string = 'oakland';
     humidity?: number;
     tempature_avg?: number;
     tempature_high?: number;
@@ -16,8 +16,7 @@ export class WashingtonDCComponent implements OnInit {
     status?: string;
     dataStuff= [];
 
-    constructor(private _dataService: CityWeatherService) {
-    }
+    constructor(private _dataService: CityWeatherService) {}
 
     ngOnInit() { 
         let x = this._dataService.retrieveCityData(this.city)

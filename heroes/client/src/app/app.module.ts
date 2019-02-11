@@ -14,13 +14,20 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { DjangoHeroesComponent } from './django-heroes/django-heroes.component';
 import { SigninComponent } from './signin/signin.component';
 import { SuccessComponent } from './success/success.component';
+import { WeatherComponent } from './weather/weather.component';
+import { BurbankComponent } from './weather/burbank/burbank.component';
+import { ChicagoComponent } from './weather/chicago/chicago.component';
+import { DallasComponent } from './weather/dallas/dallas.component';
+import { OaklandComponent } from './weather/oakland/oakland.component';
+import { SeattleComponent } from './weather/seattle/seattle.component';
+import { WashingtonDCComponent } from './weather/washington-dc/washington-dc.component';
 
 // Services
 
 import { TaskService } from './task.service';
 import { DjangoHeroesService } from './django-heroes.service';
 import { SignInService } from './sign-in.service';
-import { WeatherComponent } from './weather/weather.component';
+import { CityWeatherService } from './city-weather.service';
 
 
 @NgModule({
@@ -32,6 +39,12 @@ import { WeatherComponent } from './weather/weather.component';
         SigninComponent,
         SuccessComponent,
         WeatherComponent,
+        BurbankComponent,
+        ChicagoComponent,
+        DallasComponent,
+        OaklandComponent,
+        SeattleComponent,
+        WashingtonDCComponent
     ],
     imports: [
         BrowserModule,
@@ -48,21 +61,14 @@ import { WeatherComponent } from './weather/weather.component';
             // NO ROUTE DIRECTES TO SIGN IN PAGE
             { path: '', redirectTo: 'signin', pathMatch: 'full' },
             // ALL OTHER ROUTES NOT MATCHING OTHER PATHS WILL REROUTE TO SIGN IN
-            { path: '**', redirectTo: 'signin', pathMatch: 'full' }
-
-            // extra for original weather
-            // { path: 'burbank', component: BurbankComponent },
-            // { path: 'chicago', component: ChicagoComponent },
-            // { path: 'dallas', component: DallasComponent },
-            // { path: 'sanjose', component: SanJoseComponent },
-            // { path: 'seattle', component: SeattleComponent },
-            // { path: 'dc', component: WashingtonDCComponent },
-        
+            { path: '**', redirectTo: 'signin', pathMatch: 'full' }        
         ])
     ],
     providers: [
         TaskService,
         DjangoHeroesService,
+        CityWeatherService,
+        SignInService,
     ],
     bootstrap: [
         AppComponent
