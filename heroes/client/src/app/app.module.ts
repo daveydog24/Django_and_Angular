@@ -21,17 +21,17 @@ import { DallasComponent } from './weather/dallas/dallas.component';
 import { OaklandComponent } from './weather/oakland/oakland.component';
 import { SeattleComponent } from './weather/seattle/seattle.component';
 import { WashingtonDCComponent } from './weather/washington-dc/washington-dc.component';
-
-// Services
-
-import { TaskService } from './task.service';
-import { DjangoHeroesService } from './django-heroes.service';
-import { SignInService } from './sign-in.service';
-import { CityWeatherService } from './city-weather.service';
 import { GithubBattleComponent } from './github-battle/github-battle.component';
 import { BattleComponent } from './github-battle/battle/battle.component';
 import { RankingsComponent } from './github-battle/rankings/rankings.component';
 import { ResultsComponent } from './github-battle/results/results.component';
+
+// Services
+
+import { TaskService } from './services/task.service';
+import { DjangoHeroesService } from './services/django-heroes.service';
+import { SignInService } from './services/sign-in.service';
+import { CityWeatherService } from './services/city-weather.service';
 
 
 @NgModule({
@@ -66,6 +66,7 @@ import { ResultsComponent } from './github-battle/results/results.component';
             { path: 'signin', component: SigninComponent },
             { path: 'success', component: SuccessComponent },
             { path: 'weather', component: WeatherComponent },
+            { path: 'githubBattle', component: GithubBattleComponent },
             // NO ROUTE DIRECTES TO SIGN IN PAGE
             { path: '', redirectTo: 'signin', pathMatch: 'full' },
             // ALL OTHER ROUTES NOT MATCHING OTHER PATHS WILL REROUTE TO SIGN IN
