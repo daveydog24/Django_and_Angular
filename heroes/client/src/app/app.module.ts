@@ -30,6 +30,7 @@ import { SignInService } from './sign-in.service';
 import { CityWeatherService } from './city-weather.service';
 import { GithubBattleComponent } from './github-battle/github-battle.component';
 import { BattleComponent } from './github-battle/battle/battle.component';
+import { RankingsComponent } from './github-battle/rankings/rankings.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { BattleComponent } from './github-battle/battle/battle.component';
         SeattleComponent,
         WashingtonDCComponent,
         GithubBattleComponent,
-        BattleComponent
+        BattleComponent,
+        RankingsComponent
     ],
     imports: [
         BrowserModule,
