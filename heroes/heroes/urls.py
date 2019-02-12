@@ -24,7 +24,9 @@ urlpatterns = [
     path( 'user/login', LoginUser.as_view() ), # LOGS IN USER
     path( 'users/all', GetUsers.as_view() ), # GETS A LIST OF ALL USERS
     path( 'django/heroes', Heroes.as_view() ), # GETS A LIST OF ALL USERS OR ADDS A NEW HERO
+    path( 'django/heroes/<int:hero_id>', HeroDetails.as_view() ), # GETS A LIST OF ALL USERS OR ADDS A NEW HERO
     path( 'github/player/add', AddGithubPlayer.as_view() ), 
+    path( 'github/players/delete/<int:player_id>', GetGithubPlayers.as_view() ), # GETS A LIST OF ALL USERS OR ADDS A NEW HERO
     path( 'github/players/all', GetGithubPlayers.as_view() ), 
     # path( 'user/delete/<int:user_id>', DeleteUser.as_view() ), # DELETES A SINGLE USER
     # path( 'user/update/<int:user_id>', UpdateUser.as_view() ), # UPDATES A SINGLE USER

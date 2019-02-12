@@ -2,3 +2,10 @@ img{
     width: 150px;
     height: 150px;
 }
+.players{
+    display: inline-block;
+    margin: 10px;
+}
+h1, h2, h3{
+    margin: 0px;
+}

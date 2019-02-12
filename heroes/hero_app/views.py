@@ -126,7 +126,7 @@ class AddGithubPlayer(View):
     def post(self, request):
         our_data = json.loads(request.body.decode())
 
-        
+# workon: add validation here later to make sure no duplicate users are entered in the database 
         GithubPlayer.objects.create(
             name= our_data["name"], 
             score= our_data["score"], 
@@ -143,4 +143,7 @@ class AddGithubPlayer(View):
 
 class GetGithubPlayers(View):
     def get(self, request):
+        return JsonResponse({'status': 'ok', 'players': list(GithubPlayer.objects.values().all())})
+    def delete(self, request, player_id):
+        GithubPlayer.objects.filter(id=player_id).delete()
         return JsonResponse({'status': 'ok', 'players': list(GithubPlayer.objects.values().all())})

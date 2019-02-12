@@ -50,4 +50,8 @@ export class GithubBattleService {
         this.winner.next(winner);
         this.loser.next(loser);
     }
+
+    removePlayer(player){
+        return this.http.delete(`/github/players/delete/${player.id}`, player)
+    }
 }
