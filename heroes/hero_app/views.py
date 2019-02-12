@@ -126,20 +126,25 @@ class AddGithubPlayer(View):
     def post(self, request):
         our_data = json.loads(request.body.decode())
 
-# workon: add validation here later to make sure no duplicate users are entered in the database 
-        GithubPlayer.objects.create(
-            name= our_data["name"], 
-            score= our_data["score"], 
-            pic= our_data["pic"], 
-        )
         find_player = list(GithubPlayer.objects.values().all().filter(name=our_data['name']))
 
-        player = {
-            "name": find_player[0]["name"],
-            "score": find_player[0]["score"],
-            "pic": find_player[0]["pic"],
-        }
-        return JsonResponse({'status': 'ok', 'player': player})
+        if (find_player):
+            return JsonResponse({'status': 'error', 'error': "EMAIL IS ALREADY IN THE SYSTEM"})
+        else:
+            # workon: add validation here later to make sure no duplicate users are entered in the database 
+            GithubPlayer.objects.create(
+                name= our_data["name"], 
+                score= our_data["score"], 
+                pic= our_data["pic"], 
+            )
+            find_player = list(GithubPlayer.objects.values().all().filter(name=our_data['name']))
+
+            player = {
+                "name": find_player[0]["name"],
+                "score": find_player[0]["score"],
+                "pic": find_player[0]["pic"],
+            }
+            return JsonResponse({'status': 'ok', 'player': player})
 
 class GetGithubPlayers(View):
     def get(self, request):

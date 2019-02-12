@@ -3,6 +3,7 @@
         <div class="hero is-primary">
             <div class="hero-body is-bold" style="background-color: green">
                 <h1 class="title">Success</h1>
+                <h2 style="color:red">FUTURE ADMIN PAGE ONLY</h2>
             </div>
         </div>
         <div class="box">
@@ -12,8 +13,13 @@
                 <button (click)="signOut()">Sign out</button>
             </div>
 
-            <div class="table-box">
+            <div class="box">
                 <h1> {{displayUser | json}}</h1>
+
+                <h3 style="color:red"> PASSWORD IS NOT SENT BACK FROM THE BACK END</h3>
+            </div>
+
+            <div class="table-box">
                 <table  class="table is-fullwidth is-hoverable">
                     <thead>
                         <tr>
@@ -38,6 +44,3 @@
         </div>
     </section>
 </div>
-
-
-<!-- <h1> You have Succesfully Logged In Welcome Back!!!</h1> -->
