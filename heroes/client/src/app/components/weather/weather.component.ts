@@ -23,6 +23,7 @@ export class WeatherComponent implements OnInit {
     
     ngOnInit() {
         this._signInService.retrieveLoggedInUser(callback => {
+            this.Seattle = true;
             if (callback != undefined) {
                 this.Seattle = true;
             }

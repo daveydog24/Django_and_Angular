@@ -1,13 +1,44 @@
-#container{
+.container{
     align-content: center;
     text-align: center;
+    width: 100%;
 }
-h1{
+
+.header{
+    width: 100%;
+    margin: 0px;
+    padding: 5px;
+    /* background-color: red; */
+}
+
+.header h1{
+    width: 100%;
     text-align: center;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    
 }
-#top {
+.main-top {
+    width: 100%;
     margin: 10px;
 }
-#bottom{
+.main-bottom__fieldset{
+    width: 100%;
     border: 2px solid black;
+}
+
+.main-top a {
+    text-decoration: none;
+    color: #2d2929;
+    font-weight: bold;
+    padding: 3px 0;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.main-top a:hover,
+.main-top a:active {
+    color: white;
+    border-bottom: 5px solid white;
 }

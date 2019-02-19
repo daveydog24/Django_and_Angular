@@ -5,11 +5,56 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>David Wukelic's Project</title>
+        <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     </head>
     <body>
-        <div id="wrapper">
-            <div id="top">
-                <div id="nav-bar">
+        <header class="main-header">
+            <div>
+                <a [routerLink]="['/home']" class="main-header__brand">David Wukelic</a>
+                <br>
+                <div id="holding-div" style="width: 250px">
+                    <div>
+                        <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('LinkedIn')" class="img-links linkedin__pic" href="https://www.linkedin.com/in/david-wukelic/" target="_blank"><img class="img-links" src="../../assets/linkedIn.jpeg" alt="linkedin image/account"></a>
+                        <!-- <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('GitHub')" class="img-links github__pic" href="https://github.com/daveydog24" target="_blank"><img class="img-links" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="github image/account"></a> -->
+                        <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('GitHub')" class="img-links github__pic" href="https://github.com/daveydog24" target="_blank"><img class="img-links" src="../../assets/gitHub.gif" alt="github image/account"></a>
+                        <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('Stack Overflow')"class="img-links stackoverflow__pic" href="https://stackoverflow.com/story/david.wukelic" target="_blank"><img class="img-links" src="../../assets/stackOverflow.png" alt="stackoverflow image/account"></a>
+                        <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('Resume')"class="img-links resume__pic" href="https://docs.google.com/document/d/19Z6BU3qxEmMyx--0J_DfTTq5ViLOl8bCo2ACbgL6eUo/edit?usp=sharing" target="_blank"><img class="img-links" src="../../assets/Resume.png" alt="resume pdf"></a>
+                    </div>
+                    <div id="hidden_holding_div">
+                        <p *ngIf="linkNameOn" class="link__hidden">{{LinkName}}</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <nav class="main-nav">
+                    <ul class="main-nav__items">
+                        <li class="main-nav__item"><a [routerLink]="['/tasks']">Task Manager</a></li>
+                        <li class="main-nav__item"><a [routerLink]="['/django']">Favorite Heroes</a></li>
+                        <li class="main-nav__item"><a [routerLink]="['/weather']">Weather Forecast</a></li>
+                        <li class="main-nav__item"><a [routerLink]="['/github']">GitHub Battle</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <li class="main-nav__signin-status main-nav__item">
+                    <a (click)="signOut()" *ngIf="!signedIn">Sign Out</a>
+                    <a (click)="signIn()" *ngIf="signedIn">Sign In</a>
+                    <!-- <a style="display: none"  *ngIf="signedIn">Sign In</a> -->
+                </li>
+            </div>
+        </header>
+        <main>
+            <section id="main-router">
+                <router-outlet></router-outlet>
+            </section>
+        </main>
+    </body>
+</html>
+    <!-- <body>
+        <div id="main">
+            <div id="main-top">
+                <div id="main-top__nav-bar">
                     <nav>
                         <li><a (click)="signOut()" *ngIf="!signedIn" [routerLink]="['/signin']">Sign Out</a></li>
                         <li><a (click)="signOut()" [routerLink]="['/signin']">Sign Out</a></li>
@@ -20,16 +65,16 @@
                         <li><a [routerLink]="['/weather']">Weather Forecast</a></li>
                         <li><a [routerLink]="['/github']">GitHub Battle</a></li>
                     </nav>
-                    <!-- ############ FIGURE OUT INPUT OUTPUT AND WE WONT HAVE TO USE SERVICES IN ALL COMPONENTS -->
-                    <!-- WORKING ROUTES ONCE WE FIGURE OUT ON OFF SWITCH -->
-                    <!-- <nav>
+                    ############ FIGURE OUT INPUT OUTPUT AND WE WONT HAVE TO USE SERVICES IN ALL COMPONENTS
+                    WORKING ROUTES ONCE WE FIGURE OUT ON OFF SWITCH
+                    <nav>
                         <li><a *ngIf="signedIn" [routerLink]="['/signin']" (click)="signOut()" >Sign Out</a></li>
                         <li><a *ngIf="!signedIn" [routerLink]="['/signin']">Sign In</a></li>
                         <li><a [routerLink]="['/home']">Home</a></li>
                         <li><a *ngIf="signedIn" [routerLink]="['/tasks']">Tasks</a></li>
                         <li><a *ngIf="signedIn" [routerLink]="['/heroes']">Angular Routed Heroes</a></li>
                         <li><a *ngIf="signedIn" [routerLink]="['/django']">Django Routed Heroes</a></li>
-                    </nav> -->
+                    </nav>
                 </div>
             </div>
             <div id="bottom">
@@ -38,5 +83,5 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </body> -->
+

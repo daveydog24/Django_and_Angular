@@ -11,11 +11,14 @@ import { Router } from '@angular/router';
 export class AppComponent {
     signedIn = true;
     title = "David Wukelic's Home App Component";
+    linkNameOn = false;
+    LinkName = "Helpful Links Above"
 
     constructor(
         private _signInService: SignInService,
         private _router: Router
     ){}
+
 
     ngOnInit() {
         this._signInService.retrieveLoggedInUser(callback => {
@@ -29,8 +32,36 @@ export class AppComponent {
     }
 
     signOut(){
-        this._signInService.logOutUser();
-        this.signedIn = true;
+        this._signInService.retrieveLoggedInUser(callback => {
+            if (callback == undefined) {
+                this.signedIn =  false;
+            }
+            else {
+                this._signInService.logOutUser();
+                this.signedIn = true;
+                this._router.navigate(['/signin']);            
+            }
+        })            
+    }
+    signIn(){
+        this._signInService.retrieveLoggedInUser(callback => {
+            if (callback == undefined) {
+                this.signedIn = false;
+                this._router.navigate(['/signin']);            
+            }
+            else {
+                this.signedIn = true;
+            }
+        })       
+    }
+
+    passLink(string){
+        this.linkNameOn = true;
+        this.LinkName = string;
+    }
+
+    turnLinkHelpOff(){
+        this.linkNameOn = false;
     }
 }
 

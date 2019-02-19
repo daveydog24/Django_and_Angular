@@ -1,31 +1,121 @@
-#title{
-    font-size: 40px;
-    text-align: center;
+* {
+    box-sizing: border-box;
 }
-#wrapper{
-    border: 1px solid black;
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.main-header {
     width: 100%;
-    height: 1200px;
+    background: #3c8bec;
+    padding: 8px 16px;
 }
-#bottom{
-    margin: 15px;
+
+.main-header > div {
+    display: inline-block;
+    vertical-align: middle;
 }
-#nav-bar{
-    margin: 15px;
+
+.main-header__brand {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.main-nav {
+    display: inline-block;
     text-align: center;
-}
-#nav-bar li{
-    margin: 10px;
-    display: inline;
-}
-#nav-bar a{
-    border: 3px solid black;
+    width: 950px;
     padding: 5px;
-    font-size: 20px;
-    background-color: white;
-    font-weight: 700px;
-    margin: 10px;
+    /* width: calc(100% - 100px); */
+    vertical-align: middle;
 }
-#router-outlet-component{
-    border-top: 5px solid black;
+
+.main-nav__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
+
+.main-nav__item {
+    display: inline-block;
+    margin: 0 16px;
+}
+
+.main-nav__item a {
+    text-decoration: none;
+    color: #2d2929;
+    font-weight: bold;
+    padding: 3px 0;
+    margin-right: 10px
+}
+
+.main-nav__signin-status {
+    text-decoration: none;
+    color: #2d2929;
+    font-weight: bold;
+    padding: 3px 0;
+    list-style: none;
+    margin-left: 70px;
+    text-align: right;
+}
+.main-nav__item a:hover,
+.main-nav__item a:active {
+    color: white;
+    border-bottom: 5px solid white;
+}
+
+.main-nav__item--cta a {
+    color: white;
+    background: #ff1b68;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.main-header__brand:hover,
+.main-header__brand:active {
+    color: #2d2929;
+    border-bottom: 5px solid #2d2929;
+}
+.main-header__right{
+    text-align: right;
+}
+
+#main-router {
+    background-color: grey;
+    width: 1400px;
+    height: 600px;
+    padding: 20px;
+    margin: 20px; 
+}
+#main-header__link-list{
+    display: block;
+    margin: 5px, 30px, 0px, 0px;
+}
+.img-links{
+    width: 20px;
+    height: 20px;
+    margin: 4px 8px 0px 8px;
+    display: inline-block;
+}
+#holding-div{
+    display: inline-block;
+    width: 250px;
+}
+#hidden_holding_div{
+    display: hidden;
+    width: 150px;
+    height: 18px;
+    font-size: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+/* #hidden_holding_div > p {
+    display: none;
+} */

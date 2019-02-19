@@ -1,29 +1,66 @@
-#top, #bottom{
+.container{
+    align-content: center;
     text-align: center;
+    width: 100%;
 }
-h1{
+
+.header{
+    width: 100%;
+    margin: 0px;
+    padding: 5px;
+}
+
+.header h1{
+    width: 100%;
+    text-align: center;
+    color: white;
     font-size: 40px;
-    margin: 0px;
+    font-weight: bold;
 }
-h3{
-    font-size: 15px;
-    margin: 0px;
-}
-h6{
-    font-size: 12px;
-}
-.img-links{
-    width: 30px;
-    height: 30px;
-    margin: 5px;
-    display: inline-block;
-}
-li{
-    display: inline-block;
-    width: 60px;
-    margin: 10px;
-    font-size: 10px;
-}
-ul{
+.header h4{
+    width: 100%;
     text-align: center;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
 }
+.main-top {
+    width: 100%;
+    margin: 10px;
+}
+.main-bottom p{
+    color: white;
+    font-size: 18px; 
+}
+.main-bottom h6{
+    font-weight: bold;
+    color: darkred;
+    font-size: 25px; 
+    margin: 75px 0px 0px 0px;
+}
+img{
+    margin: 0px;
+    padding: 0px;
+}
+.links{
+    font-weight: bold;
+}
+/* .main-bottom__fieldset{
+    width: 100%;
+    border: 2px solid black;
+} */
+/* 
+.main-top a {
+    text-decoration: none;
+    color: #2d2929;
+    font-weight: bold;
+    padding: 3px 0;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.main-top a:hover,
+.main-top a:active {
+    color: white;
+    border-bottom: 5px solid white;
+} */
