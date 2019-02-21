@@ -11,6 +11,11 @@ body {
     width: 100%;
     background: #3c8bec;
     padding: 8px 16px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    margin: 0px 0px 50px 0px;
 }
 
 .main-header > div {
@@ -82,6 +87,10 @@ body {
 }
 .main-header__right{
     text-align: right;
+}
+
+main{
+    margin-top: 130px;
 }
 
 #main-router {
