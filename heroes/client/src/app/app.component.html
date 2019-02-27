@@ -8,24 +8,38 @@
         <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     </head>
+
     <body>
+        <div class="backdrop"></div>
+        <div class="modal">
+            <h1 class="modal__title">Are you sure you want to sign out?</h1>
+            <div class="modal__actions">
+                <a href="start-hosting/index.html" class="modal__action">Yes!</a>
+                <button class="modal__action modal__action--negative" type="button">No!</button>
+            </div>
+        </div>
         <header class="main-header">
             <div>
+                <button class="toggle-button">
+                    <span class="toggle-button__bar"></span>
+                    <span class="toggle-button__bar"></span>
+                    <span class="toggle-button__bar"></span>
+                </button>
                 <a [routerLink]="['/home']" class="main-header__brand">David Wukelic</a>
                 <br>
-                <div id="holding-div" style="width: 250px">
-                    <div>
-                        <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('LinkedIn')" class="img-links linkedin__pic" href="https://www.linkedin.com/in/david-wukelic/" target="_blank"><img class="img-links" src="../../assets/linkedIn.jpeg" alt="linkedin image/account"></a>
-                        <!-- <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('GitHub')" class="img-links github__pic" href="https://github.com/daveydog24" target="_blank"><img class="img-links" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="github image/account"></a> -->
-                        <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('GitHub')" class="img-links github__pic" href="https://github.com/daveydog24" target="_blank"><img class="img-links" src="../../assets/gitHub.gif" alt="github image/account"></a>
-                        <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('Stack Overflow')"class="img-links stackoverflow__pic" href="https://stackoverflow.com/story/david.wukelic" target="_blank"><img class="img-links" src="../../assets/stackOverflow.png" alt="stackoverflow image/account"></a>
-                        <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('Resume')"class="img-links resume__pic" href="https://docs.google.com/document/d/19Z6BU3qxEmMyx--0J_DfTTq5ViLOl8bCo2ACbgL6eUo/edit?usp=sharing" target="_blank"><img class="img-links" src="../../assets/Resume.png" alt="resume pdf"></a>
-                    </div>
-                    <div id="hidden_holding_div">
-                        <p *ngIf="linkNameOn" class="link__hidden">{{LinkName}}</p>
-                    </div>
-                </div>
             </div>
+            <nav id="holding-div">
+                <div>
+                    <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('LinkedIn')" class="img-links linkedin__pic" href="https://www.linkedin.com/in/david-wukelic/" target="_blank"><img class="img-links" src="../../assets/linkedIn.jpeg" alt="linkedin image/account"></a>
+                    <!-- <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('GitHub')" class="img-links github__pic" href="https://github.com/daveydog24" target="_blank"><img class="img-links" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="github image/account"></a> -->
+                    <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('GitHub')" class="img-links github__pic" href="https://github.com/daveydog24" target="_blank"><img class="img-links" src="../../assets/gitHub.gif" alt="github image/account"></a>
+                    <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('Stack Overflow')"class="img-links stackoverflow__pic" href="https://stackoverflow.com/story/david.wukelic" target="_blank"><img class="img-links" src="../../assets/stackOverflow.png" alt="stackoverflow image/account"></a>
+                    <a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('Resume')"class="img-links resume__pic" href="https://docs.google.com/document/d/19Z6BU3qxEmMyx--0J_DfTTq5ViLOl8bCo2ACbgL6eUo/edit?usp=sharing" target="_blank"><img class="img-links" src="../../assets/Resume.png" alt="resume pdf"></a>
+                </div>
+                <div id="hidden_holding_div">
+                    <p *ngIf="linkNameOn" class="link__hidden">{{LinkName}}</p>
+                </div>
+            </nav>
             <div>
                 <nav class="main-nav">
                     <ul class="main-nav__items">
