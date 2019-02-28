@@ -7,16 +7,9 @@
         <div class="main-top">
             <img class="profile-pic" src='https://avatars0.githubusercontent.com/u/36245241?s=460&v=4' alt="Profile Pic">
         </div>
-        <div class="main-bottom">
-            <p>I want to apologize this is not obviously finished but you can review my 
-                code at <a class="links" target="_blank" href="https://github.com/daveydog24/Django_and_Angular"> (Portfolio's Code)</a> for a 
-                more complete understaing of my code and the functionality. These are the projects: 
-                <a class="links" target="_blank" href="https://github.com/daveydog24/Projects/tree/master/Projects">(Projects)</a> that I am working on
-                incorporating and I will be adding session/security/admin privledges/etc. Lastly
-                I will be styling the whole website but the recruiter thought it would be best to show 
-                you that I do have extensive knowledge of these frameworks/routing/languages and database interaction.
-            </p>
-            <h6 *ngIf="errorSwitch"> You must Sign In to view all the pages!!</h6>
-        </div>
     </main>
 </div>
+<a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('LinkedIn')" class="img-links linkedin__pic" href="https://www.linkedin.com/in/david-wukelic/" target="_blank"><img class="img-links" src="../../../assets/linkedIn.jpeg" alt="linkedin image/account"></a>
+<a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('GitHub')" class="img-links github__pic" href="https://github.com/daveydog24" target="_blank"><img class="img-links" src="../../../assets/gitHub.gif" alt="github image/account"></a>
+<a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('Stack Overflow')"class="img-links stackoverflow__pic" href="https://stackoverflow.com/story/david.wukelic" target="_blank"><img class="img-links" src="../../../assets/stackOverflow.png" alt="stackoverflow image/account"></a>
+<a (mouseleave)="turnLinkHelpOff()" (mouseenter)="passLink('Resume')"class="img-links resume__pic" href="https://docs.google.com/document/d/19Z6BU3qxEmMyx--0J_DfTTq5ViLOl8bCo2ACbgL6eUo/edit?usp=sharing" target="_blank"><img class="img-links" src="../../../assets/Resume.png" alt="resume pdf"></a>

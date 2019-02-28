@@ -12,7 +12,10 @@ export class AppComponent {
     signedIn = true;
     title = "David Wukelic's Home App Component";
     linkNameOn = false;
-    LinkName = "Helpful Links Above"
+    LinkName = "Helpful Links Above";
+    backdropOn = false;
+    modalOn = false;
+
 
     constructor(
         private _signInService: SignInService,
@@ -62,6 +65,20 @@ export class AppComponent {
 
     turnLinkHelpOff(){
         this.linkNameOn = false;
+    }
+    
+    toggle(){
+        this.modalOn = true;
+        this.backdropOn = true;
+    }
+    turnOFFswitches(){
+        this.modalOn = false;
+        this.backdropOn = false;
+    }
+    signInswitch(){
+        this.modalOn = false;
+        this.backdropOn = false;
+        this._router.navigate(['/signin']);    
     }
 }
 

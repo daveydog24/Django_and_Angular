@@ -15,7 +15,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    margin: 0px 0px 50px 0px;
+    margin: 0;
 }
 
 .main-header > div {
@@ -90,26 +90,20 @@ body {
 }
 
 main{
-    margin-top: 130px;
+    margin-top: 70px;
 }
 
 #main-router {
     background-color: grey;
-    width: 1400px;
-    height: 600px;
-    padding: 20px;
-    margin: 20px; 
+    width: 100%;
+    height: 100%;
+    padding: 10px;
 }
 #main-header__link-list{
     display: block;
     margin: 5px, 30px, 0px, 0px;
 }
-.img-links{
-    width: 20px;
-    height: 20px;
-    margin: 4px 8px 0px 8px;
-    display: inline-block;
-}
+
 #holding-div{
     display: inline-block;
     width: 250px;
@@ -130,10 +124,14 @@ main{
 } */
 
 
-@media (max-width: 25rem){
+@media (max-width: 28rem){
+    .open {
+        display: block !important;
+    }
+    
     .backdrop {
         position: fixed;
-        display: none;
+        display: block;
         top: 0;
         left: 0;
         z-index: 100;
@@ -145,11 +143,11 @@ main{
     .toggle-button {
         width: 3rem;
         background: transparent;
-        border: none;
+        border: 2px solid black;
         cursor: pointer;
         padding-top: 0;
         padding-bottom: 0;
-        vertical-align: middle;
+        vertical-align: top;
     }
     
     .toggle-button:focus {
@@ -158,23 +156,23 @@ main{
     
     .toggle-button__bar {
         width: 100%;
-        height: 0.2rem;
+        height: 0.17rem;
         background: black;
         display: block;
-        margin: 0.6rem 0;
+        margin: 0.45rem 0;
     }
     
     .modal {
         position: fixed;
-        display: none;
+        display: block;
         z-index: 200;
-        top: 20%;
-        left: 30%;
-        width: 40%;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 25%;
         background: white;
         padding: 1rem;
         border: 1px solid #ccc;
-        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     }
     
     .modal__title {
@@ -211,5 +209,70 @@ main{
     .modal__action--negative:active {
         background: #ff5454;
         border-color: #ff5454;
+    }
+    .main-header {
+        width: 100%;
+        position: fixed;
+        text-align: center;
+        top: 0;
+        left: 0;
+        padding: 0.5rem 0.5rem;
+        z-index: 1;
+    }
+    .main-header__top{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .main-header__brand {
+        font-size: 1.8rem;
+        margin: 2rem;
+        vertical-align: center;
+    }
+    .main-header__links{
+        display: inline-block;
+    }
+    .main-nav{
+        display: none;
+    }
+    #hidden_holding_div{
+        display: none;
+    }
+    
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        z-index: 101;
+        top: 0;
+        left: 0;
+        background: white;
+        width: 80%;
+        height: 100vh;
+    }
+    
+    .mobile-nav__items {
+        width: 90%;
+        height: 100%;
+        list-style: none;
+        margin: 10% auto;
+        padding: 0;
+        text-align: center;
+    }
+    
+    .mobile-nav__item {
+        margin: 1rem 0;
+    }
+    
+    .mobile-nav__item a {
+        font-size: 1.5rem;
+    }
+    .modal__action--negative{
+        width: 4rem;
+        height: 2.4rem;
+        margin: .2rem;
+    }
+    green_button{
+        width: 4rem;
+        height: 3rem;
     }
 }
