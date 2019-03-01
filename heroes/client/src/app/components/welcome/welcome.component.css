@@ -6,8 +6,8 @@
 
 .header{
     width: 100%;
-    margin: 0px;
-    padding: 5px;
+    margin: 0;
+    padding: .2rem;
 }
 
 .header h1{
@@ -30,19 +30,21 @@
 }
 .main-bottom p{
     color: white;
-    font-size: 18px; 
+    font-size: 1.1rem; 
 }
 .main-bottom h6{
     font-weight: bold;
     color: darkred;
     font-size: 1.2rem; 
-    margin: 5px 0px 0px 0px;
+    margin: .2rem 0 0 0;
 }
-img{
-    margin: 1.5rem;
-    padding: 0px;
-    height: 17rem;
-    width: auto;
+.profile-pic{
+    margin: 2rem auto;
+    padding: 0;
+    width: 50%;
+    max-width: 300px;
+    height: auto;
+    display: block;
 }
 .links{
     font-weight: bold;

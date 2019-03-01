@@ -2,15 +2,29 @@
     box-sizing: border-box;
 }
 
+html{
+    width: 100vw;
+    height: 100vh;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
+
+}
+main{
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    width: 100%;
+    position: absolute;
+    top: 20%;
 }
 
 .main-header {
     width: 100%;
     background: #3c8bec;
-    padding: 8px 16px;
+    padding: .5rem 1rem;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -27,14 +41,14 @@ body {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 23px;
+    font-size: 1.5rem;
 }
 
 .main-nav {
     display: inline-block;
     text-align: center;
-    width: 950px;
-    padding: 5px;
+    width: 45rem;
+    padding: .2rem;
     /* width: calc(100% - 100px); */
     vertical-align: middle;
 }
@@ -47,50 +61,46 @@ body {
 
 .main-nav__item {
     display: inline-block;
-    margin: 0 16px;
+    margin: 0 1rem;
 }
 
 .main-nav__item a {
     text-decoration: none;
     color: #2d2929;
     font-weight: bold;
-    padding: 3px 0;
-    margin-right: 10px
+    padding: .2rem 0;
+    margin-right: .7rem;
 }
 
 .main-nav__signin-status {
     text-decoration: none;
     color: #2d2929;
     font-weight: bold;
-    padding: 3px 0;
+    padding: .2rem 0;
     list-style: none;
-    margin-left: 70px;
+    margin-left: 5rem;
     text-align: right;
 }
 .main-nav__item a:hover,
 .main-nav__item a:active {
     color: white;
-    border-bottom: 5px solid white;
+    border-bottom: .2rem solid white;
 }
 
 .main-nav__item--cta a {
     color: white;
     background: #ff1b68;
-    padding: 8px 16px;
-    border-radius: 8px;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
 }
 
 .main-header__brand:hover,
 .main-header__brand:active {
     color: #2d2929;
-    border-bottom: 5px solid #2d2929;
+    border-bottom: .35rem solid #2d2929;
 }
 .main-header__right{
     text-align: right;
-}
-
-main{
-    margin-top: 70px;
 }
 
 #main-router {
@@ -141,7 +151,9 @@ main{
     }
     
     .toggle-button {
-        width: 3rem;
+        width: 10%;
+        max-width: 37px;
+        min-width: 20px;
         background: transparent;
         border: 2px solid black;
         cursor: pointer;
