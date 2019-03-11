@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SignInService } from '../../services/sign-in.service';
 import { Router } from '@angular/router';
+import { promise } from 'protractor';
+import { strictEqual } from 'assert';
 
 @Component({
     selector: 'app-welcome',
@@ -25,5 +27,18 @@ export class WelcomeComponent implements OnInit {
                 this.errorSwitch = false;
             }
         })
+    }
+
+    turnOn(linkName){
+        let paragraphTag = document.getElementById(linkName);
+        paragraphTag.style.color = "red";
+        paragraphTag.style.fontWeight = "bold";
+        paragraphTag.style.borderBottom = "2px solid red"
+    }
+    turnLinkHelpOff(linkName) {
+        let paragraph = document.getElementById(linkName);
+            paragraph.style.color = "white";
+            paragraph.style.removeProperty("font-weight")
+            paragraph.style.removeProperty("border-bottom")
     }
 }

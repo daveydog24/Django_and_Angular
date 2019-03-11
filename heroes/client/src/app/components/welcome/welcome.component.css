@@ -16,15 +16,20 @@
     color: white;
     font-size: 1.7rem;
     font-weight: bold;
-    margin: .5rem 0;
+    margin: 0;
+    text-shadow: grey 0.1em 0.1em 0.2em;
 }
-.header h4{
+/* .header h4{
+} */
+.header__subtitle{
     width: 100%;
     text-align: center;
-    color: black;
-    font-size: 1.1rem;
+    color: white;
+    font-size: 1rem;
     font-weight: bold;
+    text-shadow: grey 0.1em 0.1em 0.2em;
 }
+
 .main-top {
     width: 100%;
 }
@@ -39,13 +44,27 @@
     margin: .2rem 0 0 0;
 }
 .profile-pic{
-    margin: 2rem auto;
+    margin: 1.5rem auto;
     padding: 0;
-    width: 50%;
+    width: 60%;
     max-width: 300px;
     height: auto;
     display: block;
+    border: 2px solid white;
+    box-shadow: 5px 5px 5px 0px rgba(255, 251, 251, 0.7);
+    border-radius: 1.5rem;
 }
+
+.profile-pic { 
+    transition: all 3.0s ease-in-out 0s; 
+}
+
+.profile-pic:hover{
+    cursor: default;
+    transform: rotate(360deg);
+    transition: all 3.0s ease-in-out 0s;
+}
+
 .links{
     font-weight: bold;
 }
@@ -53,7 +72,7 @@
     width: 3rem;
     height: 3rem;
     margin: 0;
-    display: inline-block;
+    display: inline-block;    
 }
 .mobile-nav {
     display: none;
@@ -85,10 +104,25 @@
 .picture-links div{
     display: inline-block;
     text-align: center;
-    width: 4rem;
-    margin: 1rem;
+    width: 3rem;
+    margin: 1rem 1rem 0 1rem;
 }
 p{
-    font-size: 1rem;
+    font-size: .8rem;
     color: white;
+}
+
+
+@media (min-width: 414px){
+    .phone{
+        display: none;
+    }
+}
+@media (max-width: 414px){
+    .phone{
+        display: block;
+    }
+    .laptop{
+        display: none;
+    }
 }
