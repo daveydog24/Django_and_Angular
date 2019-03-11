@@ -15,6 +15,7 @@ export class AppComponent {
     LinkName = "Helpful Links Above";
     backdropOn = false;
     modalOn = false;
+    dropDownOn = false;
 
 
     constructor(
@@ -68,12 +69,22 @@ export class AppComponent {
     }
     
     toggle(){
-        this.modalOn = true;
-        this.backdropOn = true;
+        if(this.dropDownOn == false) {
+            this.dropDownOn = true;
+        } else {
+            this.dropDownOn = false;
+        }
+        if(this.backdropOn == false) {
+            this.backdropOn = true;
+        } else {
+            this.backdropOn = false;
+        }
+        // this.modalOn = true;
     }
     turnOFFswitches(){
         this.modalOn = false;
         this.backdropOn = false;
+        this.dropDownOn = false;
     }
     signInswitch(){
         this.modalOn = false;

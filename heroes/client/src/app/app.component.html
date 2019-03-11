@@ -11,7 +11,6 @@
 
     <body>
         <div class="background"></div>
-        <div *ngIf="backdropOn"class="backdrop"></div>
         <div *ngIf="modalOn" class="modal">
             <h1 class="modal__title">You need to sign in first. Proceed to sign in?</h1>
             <div class="modal__actions">
@@ -26,6 +25,17 @@
                     <span class="toggle-button__bar"></span>
                     <span class="toggle-button__bar"></span>
                 </button>
+                <nav *ngIf="dropDownOn"  class="phone-main-nav">
+                        <div *ngIf="backdropOn"class="backdrop" (click)="turnOFFswitches()"></div>
+
+                        <ul class="phone-main-nav__items">
+                            <li class="phone-main-nav__item"><a [routerLink]="['/signin']">Sign In</a></li>
+                            <li class="phone-main-nav__item"><a [routerLink]="['/tasks']">Task Manager</a></li>
+                            <li class="phone-main-nav__item"><a [routerLink]="['/django']">Favorite Heroes</a></li>
+                            <li class="phone-main-nav__item"><a [routerLink]="['/weather']">Weather Forecast</a></li>
+                            <li class="phone-main-nav__item"><a [routerLink]="['/github']">GitHub Battle</a></li>
+                        </ul>
+                    </nav>
                 <div class="main-header__links">
                     <!-- <div class="main-header__signin">
                         <li class="main-nav__signin-status main-nav__item">
