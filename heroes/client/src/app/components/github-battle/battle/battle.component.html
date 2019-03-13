@@ -7,7 +7,7 @@
             <!-- form for user1 -->
             <form (submit)="onSubmit1($event, userForm1)" #userForm1='ngForm'>
             <div>
-                <label for="">GitHub Username:</label>
+                <label class="username" for="">GitHub Username:</label>
                 <input 
                     name="name1" 
                     id="name1" 
@@ -22,7 +22,7 @@
                 *ngIf="user1NotFound"> GitHub user name not found, please choose another
             </div>
             </div>
-                <button [disabled]="!userForm1.valid" >Get User</button>
+                <button class="user_button" [disabled]="!userForm1.valid" >Get User</button>
             </form>
         </div>
 
@@ -42,7 +42,7 @@
             <!-- form for user2 -->
             <form (submit)="onSubmit2($event,userForm2)" #userForm2='ngForm'>
             <div>
-                <label for="">GitHub Username:</label>
+                <label class="username" for="">GitHub Username:</label>
                 <input 
                     name="name2" 
                     id="name2" 
@@ -57,7 +57,7 @@
                 *ngIf="user2NotFound"> GitHub user name not found, please choose another
             </div>
             </div>
-                <button [disabled]="!userForm2.valid" >Get User</button>
+                <button class="user_button" [disabled]="!userForm2.valid" >Get User</button>
             </form>
         </div>
 
