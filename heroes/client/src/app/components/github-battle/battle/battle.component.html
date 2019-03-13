@@ -1,7 +1,8 @@
 <div id="wrapper">
+    <h1 class="title"> Battle</h1>
     <div id="player1">
         <div id="form1" *ngIf="!formOneOFF"> <!-- is on initially but turns off once we find a valid user -->
-            <h1>Player 1</h1>
+            <h1 class="main_player">Player 1</h1>
 
             <!-- form for user1 -->
             <form (submit)="onSubmit1($event, userForm1)" #userForm1='ngForm'>
@@ -36,7 +37,7 @@
 
     <div id="player2">
         <div id="form2" *ngIf="!formTwoOFF"><!-- is on initially but turns off once we find a valid user -->
-            <h1>Player 2</h1>
+            <h1 class="main_player">Player 2</h1>
 
             <!-- form for user2 -->
             <form (submit)="onSubmit2($event,userForm2)" #userForm2='ngForm'>
