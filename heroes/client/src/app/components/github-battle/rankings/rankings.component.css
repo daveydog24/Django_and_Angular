@@ -1,11 +1,41 @@
 img{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
-.players{
+.title{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 2rem 0 0 0;
+    color: white;
+}
+.player{
     display: inline-block;
-    margin: 10px;
+    margin: .3rem;
+    padding: 10px;
+    border: 1px solid white;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.5);
 }
-h1, h2, h3{
-    margin: 0px;
+.index{
+    text-align: left;
+    display: inline-block;
+    font-size: 1rem;
+    margin: .1rem;
+}
+
+.score{
+    display: inline-block;
+    margin: 0 0 0 .5rem;
+    color: yellow;
+    font-weight: bold;
+}
+
+.image{
+    display: block;
+    margin: .5rem;
+}
+
+.name{
+    text-align: center;
+    font-weight: bold;
 }

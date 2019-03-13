@@ -1,14 +1,14 @@
 <div id="wrapper">
-    <h1>Rankings</h1>
+    <h1 class="title">Rankings</h1>
     <div id="content">
         <!-- loop through players and keep track of the index as well -->
         <!-- need to figure out how to sort a certain way.... -->
         <div  style="display: inline-block; margin: 10px;" *ngFor="let player of players; let i = index">
             <div class="player">
-                <h1 style="font-size: 22px">{{i+1}}.</h1>
-                <h3>Username:  {{player.name}}</h3>  
-                <h2>Score:   {{player.score}}</h2> 
-                <img src="{{player.pic}}" alt="{{player.name}}'s profile picture'">
+                <h1 class="index">{{i+1}}.</h1>
+                <h2 class="score">{{player.score}} points</h2> 
+                <img class="image"  src="{{player.pic}}" alt="{{player.name}}'s profile picture'">
+                <h3 class="name">{{player.name}}</h3>  
                 <!-- <a class="button is-small is-danger is-outlined" (click)="removePlayer(player)">
                     <span class="icon is-small"><i class="fas fa-times-circle"></i></span>
                     <span>Remove</span>

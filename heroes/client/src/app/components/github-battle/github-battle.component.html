@@ -1,11 +1,13 @@
 <div *ngIf="buttonON" id="container">
-    <div id="top">
-        <h1> GitHub Battle </h1> 
-        <a [routerLink]="['battle']">Battle</a> | 
-        <a [routerLink]="['rankings']">Rankings</a>  
+    <div class="top">
+        <h1 class="top_header"> GitHub Battle </h1> 
+        <div class="top_choices">
+            <a class="choice" [routerLink]="['battle']">Battle</a> | 
+            <a class="choice" [routerLink]="['rankings']">Rankings</a>  
+            <h3 class="rules">Score is assesed by amount of repos a user has and how many followers they have * 12</h3>
+        </div>
     </div>
     <div id="bottom">
         <router-outlet ></router-outlet>
-        <h3>Score is assesed by amount of repos a user has and how many followers they have * 12</h3>
     </div>
 </div>

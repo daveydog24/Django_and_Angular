@@ -1,9 +1,14 @@
+h1{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: .5rem;
+}
 img{
     width: 300px;
     height: auto;
 }
 div{
     display: inline-block;
-    margin: 25px;
-    vertical-align: top;
+    margin: 1rem 1.5rem;
+    vertical-align: middle;
 }

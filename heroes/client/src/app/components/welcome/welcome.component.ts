@@ -31,14 +31,16 @@ export class WelcomeComponent implements OnInit {
 
     turnOn(linkName){
         let paragraphTag = document.getElementById(linkName);
-        paragraphTag.style.color = "red";
+        paragraphTag.style.color = "#4697dd";
         paragraphTag.style.fontWeight = "bold";
-        paragraphTag.style.borderBottom = "2px solid red"
+        paragraphTag.style.cursor = "pointer";
+        paragraphTag.style.borderBottom = "2px solid #4697dd"
     }
     turnLinkHelpOff(linkName) {
         let paragraph = document.getElementById(linkName);
             paragraph.style.color = "white";
-            paragraph.style.removeProperty("font-weight")
-            paragraph.style.removeProperty("border-bottom")
+            paragraph.style.removeProperty("font-weight");
+            paragraph.style.removeProperty("border-bottom");
+            paragraph.style.removeProperty("cursor");
     }
 }

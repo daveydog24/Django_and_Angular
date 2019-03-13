@@ -1,3 +1,6 @@
+*{
+    color: white;
+}
 .container{
     align-content: center;
     text-align: center;
@@ -24,13 +27,14 @@
     margin: 10px;
 }
 .main-bottom__fieldset{
-    width: 100%;
-    border: 2px solid black;
+    width: 90%;
+    border: 2px solid white;
+    margin: 25px auto;
 }
 
 .main-top a {
     text-decoration: none;
-    color: #2d2929;
+    color: white;
     font-weight: bold;
     padding: 3px 0;
     margin-right: 10px;

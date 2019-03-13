@@ -1,7 +1,34 @@
-h1{
-    display: inline;
-    margin-right: 75px;
+*{
+    color: white;
+}
+.top_header{
+    display: block;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px auto;
+}
+.top_choices{
+    margin: 10px auto;
+    font-weight: bold;
 }
 a{
     display: inline;
+}
+.rules{
+    width: 80%;
+    margin: .5rem auto;
+    padding: .5rem;
+    color: red;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+}
+
+.choice{
+    cursor: pointer;
+}
+
+.choice:active, .choice:hover{
+    border-bottom: 1px solid #3fbee1;
+    color: #3fbee1;
 }

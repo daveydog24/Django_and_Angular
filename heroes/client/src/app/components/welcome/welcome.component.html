@@ -10,19 +10,19 @@
             <h4 class="header__subtitle">Proficient in JavaScript and Python.</h4>
             <div>
                 <a (mouseleave)="turnLinkHelpOff('linkedIn')" (mouseenter)="turnOn('linkedIn')" class="img-links linkedin__pic" href="https://www.linkedin.com/in/david-wukelic/" target="_blank"><img class="img-links" src="../../../assets/linkedIn.jpeg" alt="linkedin image/account"></a>
-                <p id="linkedIn">LinkedIn</p>
+                <p (mouseleave)="turnLinkHelpOff('linkedIn')" (mouseenter)="turnOn('linkedIn')" id="linkedIn">LinkedIn</p>
             </div>
             <div>
                 <a (mouseleave)="turnLinkHelpOff('gitHub')" (mouseenter)="turnOn('gitHub')" class="img-links github__pic" href="https://github.com/daveydog24" target="_blank"><img class="img-links" src="../../../assets/gitHub.gif" alt="github image/account"></a>
-                <p id="gitHub">GitHub</p>
+                <p (mouseleave)="turnLinkHelpOff('gitHub')" (mouseenter)="turnOn('gitHub')" id="gitHub">GitHub</p>
             </div>
             <div>
                 <a (mouseleave)="turnLinkHelpOff('stack_overflow')" (mouseenter)="turnOn('stack_overflow')"class="img-links stackoverflow__pic" href="https://stackoverflow.com/story/david.wukelic" target="_blank"><img class="img-links" src="../../../assets/stackOverflow.png" alt="stackoverflow image/account"></a>
-                <p id="stack_overflow">Stack Overflow</p>
+                <p (mouseleave)="turnLinkHelpOff('stack_overflow')" (mouseenter)="turnOn('stack_overflow')" id="stack_overflow">Stack Overflow</p>
             </div>
             <div>
                 <a (mouseleave)="turnLinkHelpOff('resume')" (mouseenter)="turnOn('resume')"class="img-links resume__pic" href="https://docs.google.com/document/d/19Z6BU3qxEmMyx--0J_DfTTq5ViLOl8bCo2ACbgL6eUo/edit?usp=sharing" target="_blank"><img class="img-links" src="../../../assets/Resume.png" alt="resume pdf"></a>
-                <p id="resume">Resume</p>
+                <p (mouseleave)="turnLinkHelpOff('resume')" (mouseenter)="turnOn('resume')"id="resume">Resume</p>
             </div>
         </div>    
     </main>

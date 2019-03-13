@@ -8,21 +8,22 @@ import { Router } from '@angular/router';
     styleUrls: ['./github-battle.component.css']
 })
 export class GithubBattleComponent implements OnInit {
-    buttonON = false;
+    buttonON = true;
+    // buttonON = false;
     constructor(
         private _signInService: SignInService,
         private _router: Router
     ){}
     ngOnInit() {
-        this._signInService.retrieveLoggedInUser(callback => {
-            if (callback != undefined) {
-                this.buttonON = true;
-            }
-            else {
-                this.buttonON = false;
-                this._router.navigate(['/home']);            
-            }
-        })
+        // this._signInService.retrieveLoggedInUser(callback => {
+        //     if (callback != undefined) {
+        //         this.buttonON = true;
+        //     }
+        //     else {
+        //         this.buttonON = false;
+        //         this._router.navigate(['/home']);            
+        //     }
+        // })
     }
 }
 

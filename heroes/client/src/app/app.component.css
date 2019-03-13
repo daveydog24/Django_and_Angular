@@ -121,11 +121,11 @@ main{
     height: 100%;
     padding: 10px;
     min-height: 470px;
-    max-height: 600px;
+    max-height: 520px;
     min-width: 350px;
     max-width: 650px;
     border: 1px solid white;
-    margin: 1rem auto;
+    margin: 0rem auto;
     box-shadow: 0px 0px 15px 4px rgba(255, 251, 251, 0.7);
     border-radius: 1rem;
     overflow: scroll;
@@ -308,7 +308,7 @@ main{
     }
     .main-header__links{
         display: inline-block;
-        width: 90%;
+        width: 85%;
         text-align: center;
         /* min-width: 380px; */
     }
@@ -355,6 +355,8 @@ main{
         width: 4rem;
         height: 3rem;
     }
+
+
 }
 /* laptop view */
 @media (min-width: 750px) and (max-width: 1000px) {
@@ -397,6 +399,9 @@ main{
     }
     .main-header__links {
         width: 100%;
+    }
+    #main-router{
+        max-width: 850px;
     }
 }
 
