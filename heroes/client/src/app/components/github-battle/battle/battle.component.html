@@ -1,5 +1,5 @@
 <div id="wrapper">
-    <h1 class="title"> Battle</h1>
+    <!-- <h1 class="title"> Battle</h1> -->
     <div id="player1">
         <div id="form1" *ngIf="!formOneOFF"> <!-- is on initially but turns off once we find a valid user -->
             <h1 class="main_player">Player 1</h1>
@@ -36,13 +36,6 @@
         </div>
     </div>
 
-    <!-- once form1 && form2 are valid and have turned on this will turn on -->
-    <div id="battle" *ngIf="formOneOFF && formTwoOFF">
-            <!-- once you click the button the battle starts -->
-        <!-- <button (click)="battleTime()">BATTLE</button> -->
-        <button (click)="battleTime()">Battle</button>
-    </div>
-
     <div id="player2">
         <div id="form2" *ngIf="!formTwoOFF"><!-- is on initially but turns off once we find a valid user -->
             <h1 class="main_player">Player 2</h1>
@@ -77,5 +70,11 @@
                 <img class="player_img" src="{{user2Pic}}" alt="Player 2's profile_avatar image">
             </div>
         </div>
+    </div>
+
+    <!-- once form1 && form2 are valid and have turned on this will turn on -->
+    <div id="battle" *ngIf="formOneOFF && formTwoOFF">
+        <!-- once you click the button the battle starts -->
+        <button (click)="battleTime()">Battle</button>
     </div>
 </div>

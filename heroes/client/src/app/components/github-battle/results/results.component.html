@@ -1,21 +1,13 @@
-<div id="wrapper">
-    <div id="left">
-        <div id="top">
-            <h1 [ngStyle]="{'color': 'green'}">1st Place</h1>
-            <h2 [ngStyle]="{'color': 'green'}">{{winner.winnerName}} (Score: {{winner.winnerScore}})</h2>
-        </div>
-        <div id="bottom">
-            <h1 [ngStyle]="{'color': 'red'}">2nd Place</h1>
-            <h2 [ngStyle]="{'color': 'red'}">{{loser.loserName}} (Score: {{loser.loserScore}})</h2>
-        </div>
+<div class="wrapper">
+    <div class="top">
+        <h1 class="winner">Winner: {{winner.winnerName}}</h1>
+        <img class="winner_img" src="{{winner.winnerPic}}" alt="winners pic"> 
+        <h1 [ngStyle]="{'color': 'green'}">1st Place</h1>
+        <h2 [ngStyle]="{'color': 'green'}">{{winner.winnerName}} (Score: {{winner.winnerScore}})</h2>
     </div>
-    <div id="right">
-        <div id="rightTop">
-            <img src="{{winner.winnerPic}}" alt="winners pic"> 
-        </div>
-        <div id="rightBottom">
-            <small>{{winner.winnerName}}</small>
-        </div>
+    <div class="bottom">
+        <h1 [ngStyle]="{'color': 'red'}">2nd Place</h1>
+        <h2 [ngStyle]="{'color': 'red'}">{{loser.loserName}} (Score: {{loser.loserScore}})</h2>
+        <button class="reset_button" (click)="reset()">Reset</button>
     </div>
-    <button (click)="reset()">Reset</button>
 </div>

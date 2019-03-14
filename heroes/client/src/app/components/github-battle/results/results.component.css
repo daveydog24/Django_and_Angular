@@ -1,20 +1,61 @@
-button{
+.wrapper{
+    width: 85%;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 2rem auto;
+    padding: 10px;
+    border: 2px solid white;
+}
+.top{
+    padding-bottom: 1rem;
+}
+
+.winner{
+    font-size: 1rem;
+    font-weight: bold;
+    margin: .5rem;
+}
+
+.winner_img{
+    margin: 1.5rem auto;
+    padding: 0;
+    width: 60%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    border: 2px solid #c6c6c6;
+    box-shadow: 3px -3px 0px 0px rgba(255, 245, 245, 0.7);
+    border-radius: 1.5rem;
+}
+
+.bottom{
+    border-top: 2px solid white;
+    padding-top: 1rem; 
+}
+
+
+.reset_button{
+    display: block;
+    width: 40%;
     background-color: black;
     color: white;
+    text-align: center;
+    margin: 1rem auto;
+    font-weight: bold;
 }
-#right{
+
+.right{
     border: 2px solid black;
 }
 
-#left, #right{
+.left, .right{
     display: inline-block;
     margin: 10px;
 }
 
-#top h3,h4{
+.top h3, .top h4{
     color: green;
 }
 
-#bottom h3, h4{
+.bottom h3, .bottom h4{
     color: red;
 }
