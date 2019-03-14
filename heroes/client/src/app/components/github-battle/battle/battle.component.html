@@ -28,11 +28,19 @@
 
         <!-- DIV to display user THAT TURNS ON ONCE THE FORM1 IS OFF and valid entry in found  -->
         <div id="user1Displayed" *ngIf="formOneOFF">
+            <h2 class="player_tag">Player 1</h2>
             <h1>{{user1Name}}</h1>
             <div>
-                <img src="{{user1Pic}}" alt="Player 1's profile_avatar image">
+                <img class="player_img" src="{{user1Pic}}" alt="Player 1's profile_avatar image">
             </div>
         </div>
+    </div>
+
+    <!-- once form1 && form2 are valid and have turned on this will turn on -->
+    <div id="battle" *ngIf="formOneOFF && formTwoOFF">
+            <!-- once you click the button the battle starts -->
+        <!-- <button (click)="battleTime()">BATTLE</button> -->
+        <button (click)="battleTime()">Battle</button>
     </div>
 
     <div id="player2">
@@ -63,16 +71,11 @@
 
         <!-- DIV THAT displays user 2 and TURNS ON ONCE THE FORM 2 IS OFF and a valid entry is found -->
         <div id="user2Displayed" *ngIf="formTwoOFF">
+            <h2 class="player_tag">Player 2</h2>
             <h1>{{user2Name}}</h1>
             <div>
-                <img src="{{user2Pic}}" alt="Player 2's profile_avatar image">
+                <img class="player_img" src="{{user2Pic}}" alt="Player 2's profile_avatar image">
             </div>
         </div>
-    </div>
-
-    <!-- once form1 && form2 are valid and have turned on this will turn on -->
-    <div id="battle" *ngIf="formOneOFF && formTwoOFF">
-            <!-- once you click the button the battle starts -->
-        <button (click)="battleTime()">BATTLE</button>
     </div>
 </div>
