@@ -21,6 +21,7 @@
 
 .title{
     font-size: 1.5rem;
+    margin: .5rem;
 }
 
 .level{
@@ -35,4 +36,15 @@
 .table-box{
     max-width: 300px;
     overflow: scroll;
+}
+.admin_note{
+    color: red;
+    background: white;
+    font-weight: bold;
+    width: 280px;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.tabs{
+    display: block;
 }

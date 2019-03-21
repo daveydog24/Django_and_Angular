@@ -1,15 +1,15 @@
 <div class="container">
     <section class="section main">
         <div class="hero is-primary">
-            <div class="hero-body is-bold" style="background-color: green">
+            <div class="hero-body is-bold">
                 <h1 class="title">Success</h1>
-                <h2 style="color:red">FUTURE ADMIN PAGE ONLY</h2>
+                <h2 class="admin_note">FUTURE ADMIN PAGE ONLY</h2>
             </div>
         </div>
         <div class="box">
             <div class="tabs is-centered is-boxed">
-                <h1 *ngIf="registered"> You have Succesfully Registered!!!</h1>
-                <h1 *ngIf="!registered"> You have Succesfully Logged In Welcome Back!!!</h1>
+                <h1 *ngIf="registered"> Succesfully Registered!!!</h1>
+                <h1 *ngIf="!registered"> Welcome Back!!!</h1>
                 <button (click)="signOut()">Sign out</button>
             </div>
 
