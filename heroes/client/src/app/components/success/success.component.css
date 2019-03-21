@@ -31,3 +31,8 @@
 .button.is-link.is-outlined {
     text-align: center;
 }
+
+.table-box{
+    max-width: 300px;
+    overflow: scroll;
+}

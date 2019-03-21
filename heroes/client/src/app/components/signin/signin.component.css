@@ -32,8 +32,11 @@
     text-align: center;
 }
 
-.is-active:active{
+.is-active a:active,
+.is-active a:hover {
     color: red;
-
+}
+.is-active > a{
+    font-weight: bold;
 }
 
