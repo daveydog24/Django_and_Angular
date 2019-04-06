@@ -3,40 +3,38 @@
         <div class="hero is-primary">
             <div class="hero-body is-bold">
                 <h1 class="title">Success</h1>
-                <h2 class="admin_note">FUTURE ADMIN PAGE ONLY</h2>
             </div>
         </div>
         <div class="box">
             <div class="tabs is-centered is-boxed">
+                <h2 class="admin_note">FUTURE ADMIN PAGE ONLY</h2>
                 <h1 *ngIf="registered"> Succesfully Registered!!!</h1>
                 <h1 *ngIf="!registered"> Welcome Back!!!</h1>
                 <button (click)="signOut()">Sign out</button>
             </div>
-
             <div class="box">
+                <h1 class="red">Json displayed User Info</h1>
                 <h1> {{displayUser | json}}</h1>
-
-                <h3 style="color:red"> PASSWORD IS NOT SENT BACK FROM THE BACK END</h3>
+            
+                <h3 class="red"> PASSWORD IS NOT SENT BACK FROM THE BACK END</h3>
             </div>
-
+            
+            <h2 class="red">All other Users below</h2>
             <div class="table-box">
                 <table  class="table is-fullwidth is-hoverable">
                     <thead>
                         <tr>
-                            <th style="width: 25%">First Name</th>
-                            <th style="width: 25%">Last Name</th>
-                            <th style="width: 25%">Email</th>
-                            <th style="width: 25%">Password</th>
+                            <th class="center" style="width: 33%">Name</th>
+                            <th class="center" style="width: 33%">Email</th>
+                            <th class="center" style="width: 33%">Password</th>
                         </tr>
                     </thead>
                     <tbody>
                         <br>
-                        <h2>All other Users below</h2>
                         <tr *ngFor="let user of users">
-                            <td>{{ user.first_name }}</td>
-                            <td>{{ user.last_name }}</td>
-                            <td>{{ user.email }}</td>
-                            <td>{{ user.password }}</td>
+                            <td class="center">{{ user.first_name }} {{ user.last_name }}</td>
+                            <td class="center">{{ user.email }}</td>
+                            <td class="center">{{ user.password }}</td>
                         </tr>
                     </tbody>
                 </table>

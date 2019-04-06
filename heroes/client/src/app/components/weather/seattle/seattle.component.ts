@@ -23,6 +23,7 @@ export class SeattleComponent implements OnInit {
         .subscribe(data => {
             this.humidity = data['main'].humidity;
             this.tempature_avg = (data['main'].temp_max + data['main'].temp_min) / 2;
+            this.tempature_avg = Math.round(this.tempature_avg * 100) / 100
             this.tempature_high = data['main'].temp_max;
             this.tempature_low = data['main'].temp_min;
             this.status = data['weather'][0].description;

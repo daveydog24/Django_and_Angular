@@ -24,7 +24,6 @@
 .section{
     margin: 0;
     padding: 0;
-    border: 10px solid white;
     border-radius: 1rem;
 }
 .hero-body{
@@ -65,7 +64,38 @@
     margin: .3rem 0 0 0;
     margin-bottom: 0;
 }
+.level-item{
+    width: 90%;
+    text-align: center;
+}
 
 .button.is-link.is-outlined {
     text-align: center;
+    width: 85%;
 }
+
+.table_header{
+    text-align: center;
+}
+
+.tag.is-light, .tag.is-danger{
+    margin: 0 auto;
+    width: 100%
+}
+
+.center{
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.box{
+    padding: 0;
+}
+.tag.is-success{
+    margin: 0px;
+}
+
+
+

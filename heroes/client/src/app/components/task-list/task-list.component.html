@@ -9,18 +9,18 @@
             <form (submit)="createTask()">
                 <div class="column">
                     <div class="level"> 
-                        <div class="level-item">
+                        <!-- <div class="level-item">
                             <p class="subtitle is-4">New Task:</p>
-                        </div>
+                        </div> -->
                         <div class="level-item control has-icons-left">
-                            <input type="text" name="task.task" [(ngModel)]="task.task" placeholder="Your task" class="input" autoFocus/>
+                            <input type="text" name="task.task" [(ngModel)]="task.task" placeholder="Add new task here" class="input" autoFocus/>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-briefcase"></i>
                             </span>
                         </div>
                         <div class="level-item">
                             <button type="submit" class="button is-link is-outlined">
-                                New Task
+                                Create Task
                             </button>
                         </div>
                     </div>
@@ -44,18 +44,18 @@
                 <table class="table is-fullwidth is-hoverable">
                     <thead>
                         <tr>
-                            <th style="width: 50%">Task</th>
-                            <th style="width: 25%">Status</th>
-                            <th style="width: 25%">Remove</th>
+                            <th class="table_header" style="width: 50%">Task</th>
+                            <th class="table_header" style="width: 25%">Status</th>
+                            <th class="table_header" style="width: 25%">Remove</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let task of tasks">
-                            <td>{{ task.task }}</td>
-                            <td>
+                            <td class="center">{{ task.task }}</td>
+                            <td class="center">
                                 <div class="tags has-addons" (click)="changeStatus(task)">
                                     <span *ngIf="task.isComplete" class="tag is-success">
-                                        Completed
+                                        Complete
                                     </span>
                                     <span *ngIf="task.isComplete" class="tag is-light">
                                         <input type="checkbox" checked />
@@ -68,14 +68,14 @@
                                     </span>
                                 </div>
                             </td>
-                            <td>
+                            <td class="center">
                                 <a class="button is-small is-danger is-outlined" (click)="remove(task)">
                                     <span class="icon is-small">
                                         <i class="fas fa-times-circle"></i>
                                     </span>
-                                    <span>
+                                    <!-- <span>
                                         Remove
-                                    </span>
+                                    </span> -->
                                 </a>
                             </td>
                         </tr>
