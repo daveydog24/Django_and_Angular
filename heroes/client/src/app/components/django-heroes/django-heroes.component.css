@@ -31,3 +31,24 @@
 .button.is-link.is-outlined {
     text-align: center;
 }
+
+.level-item.left{
+    width: 100%;
+
+}
+
+input{
+    display: block;
+    margin: .5rem auto;
+    max-width: 30rem;
+    width: 90%;
+}
+.non-mobile{
+    display: none;
+}
+@media (min-width: 750px){
+    .non-mobile{
+        display: inline-block;
+    }
+}
+

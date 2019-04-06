@@ -12,14 +12,13 @@
                         <!-- <div class="level-item">
                             <p class="subtitle is-4">New Task:</p>
                         </div> -->
-                        <div class="level-item control has-icons-left">
-                            <input type="text" name="task.task" [(ngModel)]="task.task" placeholder="Add new task here" class="input" autoFocus/>
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-briefcase"></i>
-                            </span>
+                        <div class="task-input level-item control has-icons-left">
+                            <input type="text" name="task.task" [(ngModel)]="task.task" placeholder="Add new task here" class="task-input input" autoFocus/>
                         </div>
-                        <div class="level-item">
-                            <button type="submit" class="button is-link is-outlined">
+                    </div>
+                    <div class="level"> 
+                        <div class="create-task level-item">
+                            <button type="submit" class="create-task__button button is-link is-outlined">
                                 Create Task
                             </button>
                         </div>
@@ -44,9 +43,9 @@
                 <table class="table is-fullwidth is-hoverable">
                     <thead>
                         <tr>
-                            <th class="table_header" style="width: 50%">Task</th>
-                            <th class="table_header" style="width: 25%">Status</th>
-                            <th class="table_header" style="width: 25%">Remove</th>
+                            <th class="table_header" style="width: 33%">Task</th>
+                            <th class="table_header" style="width: 33%">Status</th>
+                            <th class="table_header" style="width: 33%">Remove</th>
                         </tr>
                     </thead>
                     <tbody>

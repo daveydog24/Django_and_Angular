@@ -97,5 +97,16 @@
     margin: 0px;
 }
 
+.create-task, .create-task__button{
+    display: block;
+    width: 75%;
+    margin: .5rem auto;
+    max-width: 400px;
+}
 
-
+.task-input{
+    display: block;
+    width: 90%;
+    margin: .5rem auto;
+    max-width: 650px;
+}

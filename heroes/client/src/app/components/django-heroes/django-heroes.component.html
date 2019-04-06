@@ -1,7 +1,7 @@
 <div class="container">
     <section class="section main">
         <div class="hero is-primary">
-            <div class="hero-body is-bold" style="background-color: blue">
+            <div class="hero-body is-bold">
                 <h1 class="title">Favorite Heroes</h1>
             </div>
         </div>
@@ -12,10 +12,9 @@
                         <p>Each input requires at least 3 valid characters to submit a new hero!</p><br>
                     </div>
                     <div class="level"> 
-                        <div style="width: 85%" class="level-item left">
-                            <label style="width: 10%">Name:</label>
+                        <div class="level-item left">
+                            <label >Name:</label>
                             <input
-                                style="width: 40%" 
                                 type="text"
                                 id="createName"
                                 name="createName" 
@@ -27,9 +26,8 @@
                                 required
                                 minlength="3" 
                             />
-                            <label style="width: 10%">Ability:</label>
+                            <label>Ability:</label>
                             <input 
-                                style="width: 40%" 
                                 type="text" 
                                 id="createAbility"
                                 name="createAbility" 
@@ -44,12 +42,12 @@
                         </div>
                     </div>
                     <div class="level">
-                        <div style="width: 50%; color:red" class="level-item-left">
+                        <div class="level-item-left">
                             <p *ngIf="(createName.errors && createName.errors.minlength)">Hero's name needs to be at least 3 characters</p>
                             <p *ngIf="(createAbility.errors && createAbility.errors.minlength)">Hero's ability needs to be at least 3 characters</p>
-                            <p *ngIf="(!createName.errors && !createAbility.errors)" style="width: 50%; color:green" class="level-item-left">All inputs are valid!</p>
+                            <p *ngIf="(!createName.errors && !createAbility.errors)" class="level-item-left">All inputs are valid!</p>
                         </div>
-                        <div *ngIf="(!createName.errors && !createAbility.errors)"  style="width: 15%" class="level-item-right">
+                        <div *ngIf="(!createName.errors && !createAbility.errors)"  class="level-item-right">
                             <button type="submit" class="button is-link is-outlined">Create Hero</button>
                         </div>
                     </div>
@@ -58,10 +56,9 @@
             <form *ngIf="updateHeroOn" (submit)="updateDjangoHero()">
                 <div class="column">
                     <div class="level"> 
-                        <div style="width: 100%" class="level-item control has-icons-left">
-                            <label style="width: 10%"> Name:</label>
+                        <div class="level-item control has-icons-left">
+                            <label> Name:</label>
                             <input 
-                                style="width: 40%" 
                                 type="text"
                                 id="name"
                                 name="name" 
@@ -73,9 +70,8 @@
                                 required
                                 minlength="3" 
                             />
-                            <label style="width: 10%"> Ability:</label>
+                            <label> Ability:</label>
                             <input 
-                                style="width: 40%" 
                                 type="text"
                                 id="abilities"
                                 name="abilities" 
@@ -90,12 +86,12 @@
                         </div>
                     </div>
                     <div class="level">
-                        <div style="width: 50%; color:red" class="level-item-left">
+                        <div class="level-item-left">
                             <p *ngIf="(name.errors && name.errors.minlength)">Hero's name needs to be at least 3 characters</p>
                             <p *ngIf="(abilities.errors && abilities.errors.minlength)">Hero's ability needs to be at least 3 characters</p>
-                            <p *ngIf="(!name.errors && !abilities.errors)" style="width: 50%; color:green" class="level-item-left">All inputs are valid!</p>
+                            <p *ngIf="(!name.errors && !abilities.errors)" class="level-item-left">All inputs are valid!</p>
                         </div>
-                        <div *ngIf="(!name.errors && !abilities.errors)"  style="width: 25%" class="level-item-right">
+                        <div *ngIf="(!name.errors && !abilities.errors)" class="level-item-right">
                             <button type="submit" class="button is-link is-outlined">Update Hero</button>
                         </div>
                     </div>
@@ -112,8 +108,8 @@
                 <table *ngIf="allOn" class="table is-fullwidth is-hoverable">
                     <thead>
                         <tr>
-                            <th style="width: 50%">Hero</th>
-                            <th style="width: 50%">Main Ability</th>
+                            <th>Hero</th>
+                            <th>Main Ability</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -126,16 +122,16 @@
                 <table *ngIf="!allOn" class="table is-fullwidth is-hoverable">
                     <thead>
                         <tr>
-                            <th style="width: 25%">Hero</th>
-                            <th style="width: 25%">Main Ability</th>
-                            <th style="width: 25%">Edit</th>
-                            <th style="width: 25%">Remove</th>
+                            <th >Hero</th>
+                            <th class="non-mobile">Main Ability</th>
+                            <th>Edit</th>
+                            <th>Remove</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let hero of django_heroes">
                             <td>{{ hero.name }}</td>
-                            <td>{{ hero.abilities }}</td>
+                            <td class="non-mobile">{{ hero.abilities }}</td>
                             <td>
                                 <a class="button is-small is-danger is-outlined" (click)="updateHero(hero)">
                                     <span class="icon is-small"><i class="fas fa-times-circle"></i></span>
