@@ -110,3 +110,10 @@
     margin: .5rem auto;
     max-width: 650px;
 }
+
+@media (min-width: 550px) and (max-width: 2500px) {
+    .center, .tag {
+        min-width: 10rem;
+    }
+
+}

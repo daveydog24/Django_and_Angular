@@ -11,6 +11,7 @@
 
     <body>
         <div class="background"></div>
+        <div *ngIf="blurredOn" class="blurredView"></div>
         <div *ngIf="modalOn" class="modal">
             <h1 class="modal__title">You need to sign in first. Proceed to sign in?</h1>
             <div class="modal__actions">
@@ -26,34 +27,39 @@
                     <span class="toggle-button__bar"></span>
                 </button>
                 <nav *ngIf="dropDownOn"  class="phone-main-nav">
-                        <div *ngIf="backdropOn"class="backdrop" (click)="turnOFFswitches()"></div>
-
+                    <div *ngIf="backdropOn"class="backdrop" (click)="turnOFFswitches()"></div>
                         <ul class="phone-main-nav__items">
-                            <li class="phone-main-nav__item"><a [routerLink]="['/signin']">Sign In</a></li>
-                            <li class="phone-main-nav__item"><a [routerLink]="['/tasks']">Task Manager</a></li>
-                            <li class="phone-main-nav__item"><a [routerLink]="['/django']">Favorite Heroes</a></li>
-                            <li class="phone-main-nav__item"><a [routerLink]="['/weather']">Weather Forecast</a></li>
-                            <li class="phone-main-nav__item"><a [routerLink]="['/github']">GitHub Battle</a></li>
+                            <li *ngIf="!userSignedIn" class="phone-main-nav__item"><a [routerLink]="['/signin']">Sign In</a></li>
+                            <li class="phone-main-nav__item"><a (click)="routeTo('tasks')">Task Manager</a></li>
+                            <li class="phone-main-nav__item"><a (click)="routeTo('django')">Favorite Heroes</a></li>
+                            <li class="phone-main-nav__item"><a (click)="routeTo('weather')">Weather Forecast</a></li>
+                            <li class="phone-main-nav__item"><a (click)="routeTo('github')">GitHub Battle</a></li>
                         </ul>
-                    </nav>
-                    <div class="main-header__links">
-                        <!-- <div class="main-header__signin">
-                            <li class="main-nav__signin-status main-nav__item">
-                                <a (click)="signOut()" *ngIf="!signedIn">Sign Out</a>
-                                <a (click)="signIn()" *ngIf="signedIn">Sign In</a>
-                            </li>
-                        </div> -->
-                        <a [routerLink]="['/home']" class="main-header__brand">David Wukelic</a>
-                        <nav class="main-nav">
-                            <ul class="main-nav__items">
-                                <li class="main-nav__item"><a [routerLink]="['/tasks']">Task Manager</a></li>
-                                <li class="main-nav__item"><a [routerLink]="['/django']">Favorite Heroes</a></li>
-                                <li class="main-nav__item"><a [routerLink]="['/weather']">Weather Forecast</a></li>
-                                <li class="main-nav__item"><a [routerLink]="['/github']">GitHub Battle</a></li>
-                                <li class="main-nav__item"><a [routerLink]="['/signin']">Sign In</a></li>
+                </nav>
+                <div class="main-header__links">
+                    <a [routerLink]="['/home']" class="main-header__brand">David Wukelic</a>
+                    <nav class="main-nav">
+                        <ul class="main-nav__items">
+                            <li class="main-nav__item"><a (click)="routeTo('tasks')">Task Manager</a></li>
+                            <li class="main-nav__item"><a (click)="routeTo('django')">Favorite Heroes</a></li>
+                            <li class="main-nav__item"><a (click)="routeTo('weather')">Weather Forecast</a></li>
+                            <li class="main-nav__item"><a (click)="routeTo('github')">GitHub Battle</a></li>
+                            <li *ngIf="!userSignedIn"  class="main-nav__item"><a [routerLink]="['/signin']">Sign In</a></li>
                         </ul>
                     </nav>
                 </div>
+                <!-- <div class="main-header__links">
+                    <a [routerLink]="['/home']" class="main-header__brand">David Wukelic</a>
+                    <nav class="main-nav">
+                        <ul class="main-nav__items">
+                            <li class="main-nav__item"><a [routerLink]="['/tasks']">Task Manager</a></li>
+                            <li class="main-nav__item"><a [routerLink]="['/django']">Favorite Heroes</a></li>
+                            <li class="main-nav__item"><a [routerLink]="['/weather']">Weather Forecast</a></li>
+                            <li class="main-nav__item"><a [routerLink]="['/github']">GitHub Battle</a></li>
+                            <li class="main-nav__item"><a [routerLink]="['/signin']">Sign In</a></li>
+                        </ul>
+                    </nav>
+                </div> -->
             </div>
         </header>
         <main>
