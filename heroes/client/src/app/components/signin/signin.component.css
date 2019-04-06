@@ -24,8 +24,9 @@
 }
 
 .level{
-    margin: .3rem 0 0 0;
     margin-bottom: 0;
+    max-width: 600px;
+    margin: .5rem auto;
 }
 
 .button.is-link.is-outlined {
@@ -39,4 +40,12 @@
 .is-active > a{
     font-weight: bold;
 }
+
+.level, label{
+    display: block;
+}
+.left{
+    text-align: left;
+}
+
 

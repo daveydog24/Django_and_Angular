@@ -15,15 +15,15 @@ export class GithubBattleComponent implements OnInit {
         private _router: Router
     ){}
     ngOnInit() {
-        // this._signInService.retrieveLoggedInUser(callback => {
-        //     if (callback != undefined) {
-        //         this.buttonON = true;
-        //     }
-        //     else {
-        //         this.buttonON = false;
-        //         this._router.navigate(['/home']);            
-        //     }
-        // })
+        this._signInService.retrieveLoggedInUser(callback => {
+            if (callback != undefined) {
+                this.buttonON = true;
+            }
+            else {
+                this.buttonON = false;
+                this._router.navigate(['/home']);            
+            }
+        })
     }
 }
 

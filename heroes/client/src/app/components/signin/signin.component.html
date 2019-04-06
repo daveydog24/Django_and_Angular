@@ -17,9 +17,8 @@
                     <form (submit)="loginUser()">
                         <div class="column">
                             <div class="level"> 
-                                <label class="level-item left" style="width: 100%">Email:</label>
+                                <label class="level-item left">Email:</label>
                                 <input
-                                    style="width: 100%"
                                     type="loginemail"
                                     id="loginemail"
                                     name="loginemail" 
@@ -31,14 +30,13 @@
                                     required
                                     minlength="6" 
                                 />
-                                <span class="level-item right" style="width: 100%; display: inline-flex">
+                                <span class="level-item right" style="display: inline-flex">
                                     <p *ngIf="loginemail.errors && loginemail.touched" style="color:red">Not a valid Email</p>
                                 </span>
                             </div>
                             <div class="level"> 
-                                <label class="level-item left" style="width: 100%">Password:</label>
+                                <label class="level-item left">Password:</label>
                                 <input
-                                    style="width: 100%"
                                     type="loginpassword"
                                     id="loginpassword"
                                     name="loginpassword" 
@@ -50,13 +48,13 @@
                                     required
                                     minlength="8" 
                                 />
-                                <span class="level-item right" style="width: 100%; display: inline-flex">
+                                <span class="level-item right" style="display: inline-flex">
                                     <p *ngIf="loginpassword.errors  && loginpassword.touched"  style="color:red">Password must be 8 characters</p>
                                     <!-- <p *ngIf="loginpassword.errors" style="color:red">{{loginpassword.errors | json }}</p> -->
                                 </span>
                             </div>
                             <div *ngIf="!loginemail.errors && !loginpassword.errors" class="level">
-                                <button style="width: 100%" type="submit" class="button is-link is-outlined level-item center">Sign in</button>
+                                <button type="submit" class="button is-link is-outlined level-item center">Sign in</button>
                             </div>
                         </div>
                     </form>
@@ -66,9 +64,8 @@
                         <form (submit)="registerHTTP_hero()">
                         <div class="column">
                             <div class="level"> 
-                                <label class="level-item left" style="width: 100%">First Name:</label>
+                                <label class="level-item left">First Name:</label>
                                 <input
-                                    style="width: 100%"
                                     type="name"
                                     id="firstname"
                                     name="firstname" 
@@ -80,14 +77,13 @@
                                     required
                                     minlength="3" 
                                 />
-                                <span class="level-item right" style="width: 100%; display: inline-flex">
+                                <span class="level-item right" style="display: inline-flex">
                                     <p *ngIf="firstname.errors && firstname.touched"  style="color:red">First name must be 3 characters</p>
                                 </span>
                             </div>
                             <div class="level"> 
-                                <label class="level-item left" style="width: 100%">Last Name:</label>
+                                <label class="level-item left">Last Name:</label>
                                 <input
-                                    style="width: 100%"
                                     type="text"
                                     id="lastname"
                                     name="lastname" 
@@ -99,15 +95,14 @@
                                     required
                                     minlength="3" 
                                 />
-                                <span class="level-item right" style="width: 100%; display: inline-flex">
+                                <span class="level-item right" style="display: inline-flex">
                                     <p *ngIf="lastname.errors && lastname.touched" style="color:red">Last name must be 3 characters</p>
                                 </span>
                             </div>
                             
                             <div class="level"> 
-                                <label class="level-item left" style="width: 100%">Email:</label>
+                                <label class="level-item left">Email:</label>
                                 <input
-                                    style="width: 100%"
                                     type="email"
                                     id="email"
                                     name="email" 
@@ -119,14 +114,13 @@
                                     required
                                     minlength="6" 
                                 />
-                                <span class="level-item right" style="width: 100%; display: inline-flex">
+                                <span class="level-item right" style="display: inline-flex">
                                     <p *ngIf="email.errors  && email.touched"  style="color:red">Not a valid email</p>
                                 </span>
                             </div>
                             <div class="level"> 
-                                <label class="level-item left" style="width: 100%">Password:</label>
+                                <label class="level-item left" >Password:</label>
                                 <input
-                                    style="width: 100%"
                                     type="password"
                                     id="password"
                                     name="password" 
@@ -138,12 +132,12 @@
                                     required
                                     minlength="5" 
                                 />
-                                <span class="level-item right" style="width: 100%; display: inline-flex">
+                                <span class="level-item right"  style="display: inline-flex">
                                     <p *ngIf="password.errors && password.touched"  style="color:red">Password must be 8 characters</p>
                                 </span>
                             </div>
                             <div *ngIf="!email.errors && !password.errors" class="level">
-                                <button style="width: 100%" type="submit" class="button is-link is-outlined level-item center">Sign Up!</button>
+                                <button  type="submit" class="button is-link is-outlined level-item center">Sign Up!</button>
                             </div>
                         </div>
                     </form>
