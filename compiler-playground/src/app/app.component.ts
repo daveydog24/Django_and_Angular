@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'compiler-playground';
+  title: string = 'compiler-playground';
+  h1Style: boolean = false;
+
+  firstClick() {
+    this.h1Style = !this.h1Style;
+  }
 }
