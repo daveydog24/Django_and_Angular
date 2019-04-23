@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'compiler-playground';
-  h1Style: boolean = false;
-
-  firstClick() {
-    this.h1Style = !this.h1Style;
-  }
 }

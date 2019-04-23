@@ -1,3 +1,9 @@
-<p>
-  home works!
-</p>
+<app-nav></app-nav>
+<section>
+    <h1 [ngClass]="{
+        'gray': h1Style,
+        'large': !h1Style
+        }">Home
+    </h1>
+    <button (click)="clicked()">Click me</button>
+</section>
