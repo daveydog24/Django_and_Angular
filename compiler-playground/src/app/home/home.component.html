@@ -1,8 +1,13 @@
 <section style="border-top: 2px solid black;">
     <h1 style="text-align: center">Child Component</h1>
-    <input type="text" class="form-control" id="name" [(ngModel)]="sendToParent" />
-    <p>Going to send: "{{ sendToParent }}" once the button below is clicked!</p>
-    <button (click)="clicked()">Send input to Parent</button>
+
+<!-- utilizing output to send back to parent -->
+<p>Going to send: "{{ sendToParent }}" once the button below is clicked!</p>
+<input type="text" class="form-control" id="name" [(ngModel)]="sendToParent" />
+<button (click)="clicked()">Send input to Parent</button>
+
+
+<!-- utilizing input to get data from child-->
     <h3 style="text-align: center; color:red">Message from the Child:</h3>
     <p style="text-align: center; color:green">{{parentData}}</p>
 </section>
