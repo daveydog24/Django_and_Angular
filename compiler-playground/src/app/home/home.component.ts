@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
@@ -7,14 +7,17 @@ import { DataService } from '../data.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    h1Style = false;
-  constructor(private data: DataService) { }
+    @Input('dataFromParent') public parentData;
+    @Output() public childEvent = new EventEmitter;
+    sendToParent;
 
-  ngOnInit() {
-  }
+    constructor() { }
 
-  clicked() {
-    this.data.firstClick();
-  }
+    ngOnInit() {
+    }
+
+    clicked() {
+        this.childEvent.emit(this.sendToParent)
+    }
 
 }

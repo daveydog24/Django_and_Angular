@@ -1,9 +1,8 @@
-<app-nav></app-nav>
-<section>
-    <h1 [ngClass]="{
-        'gray': h1Style,
-        'large': !h1Style
-        }">Home
-    </h1>
-    <button (click)="clicked()">Click me</button>
+<section style="border-top: 2px solid black;">
+    <h1 style="text-align: center">Child Component</h1>
+    <input type="text" class="form-control" id="name" [(ngModel)]="sendToParent" />
+    <p>Going to send: "{{ sendToParent }}" once the button below is clicked!</p>
+    <button (click)="clicked()">Send input to Parent</button>
+    <h3 style="text-align: center; color:red">Message from the Child:</h3>
+    <p style="text-align: center; color:green">{{parentData}}</p>
 </section>

@@ -1,1 +1,11 @@
-<app-home></app-home>
+<section>
+    <h1 style="text-align: center">Parent Component</h1>
+    <input type="text" class="form-control" id="name" [(ngModel)]="ParentData" />
+    <p>Going to send: "{{ ParentData }}" once the button below is clicked!</p>
+    <button (click)="clicked()">Send input to Child</button>
+    <h3 style="text-align: center; color:red">Message from the Child:</h3>
+    <p style="text-align: center; color:green">{{fromChild}}</p>
+</section>
+
+<app-home (childEvent)="fromChild=$event" [dataFromParent]="sendToChild"></app-home>
+

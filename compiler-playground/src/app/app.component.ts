@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'compiler-playground';
+  ParentData;
+  sendToChild;
+  sentFromParent
+  message;
+
+  clicked() {
+      this.sendToChild = this.ParentData;
+  }
+
+
 }
